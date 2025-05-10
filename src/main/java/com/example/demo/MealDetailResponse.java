@@ -1,10 +1,17 @@
 package com.example.demo;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ArrayList;
 
 public class MealDetailResponse {
     private List<MealDetail> meals;
 
+    public MealDetailResponse() {
+        this.meals = new ArrayList<>();
+    }
+    public MealDetailResponse(List<MealDetail> meals) {
+        this.meals = meals;
+    }
     public List<MealDetail> getMeals() {
         return meals;
     }
