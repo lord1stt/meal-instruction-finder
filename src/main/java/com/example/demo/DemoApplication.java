@@ -87,6 +87,7 @@ public class DemoApplication {
 						+ cBoxCategories.getSelectedItem().toString();
 				MealResponse mealResponse = restTemplate.getForObject(foodUrl, MealResponse.class);
 				List<MealResponse.Meal> meals = mealResponse.getMeals();
+				cBoxMeals.removeAllItems(); // Önceki yemekleri temizle
 				for(MealResponse.Meal m : meals){
 					cBoxMeals.addItem(m.getStrMeal());
 				}
@@ -126,7 +127,7 @@ public class DemoApplication {
 					MealDetailResponse.MealDetail mealDetail = mealDetailResponse.getMeals().get(0);
 					tarifTextPane.setText(mealDetail.getStrMeal() +
 							" Tarifi:\n" + mealDetail.getStrInstructions());
-					saveMealDetail(mealDetail); // Seçilen yemek JSON’a yazılıyor
+					saveMealDetail(mealDetail); // Seçilen yemek JSON'a yazılıyor
 				}
 			}
 		});
@@ -148,6 +149,16 @@ public class DemoApplication {
 		JButton historyButton = new JButton("Tarif Geçmişi");
 //		JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		row3.add(historyButton);
+
+		// Tarif Geçmişi butonu için ActionListener eklendi
+		historyButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				HistoryPanel historyPanel = new HistoryPanel();
+				historyPanel.setVisible(true);
+			}
+		});
+
 //		frame.getContentPane().add(Box.createVerticalStrut(100)); // Üstünden biraz boşluk
 //		frame.getContentPane().add(bottomPanel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
