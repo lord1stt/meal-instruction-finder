@@ -199,6 +199,7 @@ public class DemoApplication {
 			objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, response);
 			System.out.println("Meal Detail kaydedildi/güncellendi: " + mealDetail.getStrMeal());
 		} catch (IOException e) {
+			// deneme
 			System.out.println("JSON dosyasına yazılırken bir hata oluştu: " + e.getMessage());
 			e.printStackTrace();
 		}
