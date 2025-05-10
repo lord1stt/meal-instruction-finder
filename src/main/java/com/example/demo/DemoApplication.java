@@ -1,5 +1,10 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import java.io.IOException;
+import java.io.File;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.client.RestTemplate;
@@ -11,6 +16,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -79,7 +85,7 @@ public class DemoApplication {
 //						"Bilgi",JOptionPane.INFORMATION_MESSAGE);
 				String foodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
 						+ cBoxCategories.getSelectedItem().toString();
-		        MealResponse mealResponse = restTemplate.getForObject(foodUrl, MealResponse.class);
+				MealResponse mealResponse = restTemplate.getForObject(foodUrl, MealResponse.class);
 				List<MealResponse.Meal> meals = mealResponse.getMeals();
 				for(MealResponse.Meal m : meals){
 					cBoxMeals.addItem(m.getStrMeal());
@@ -120,6 +126,7 @@ public class DemoApplication {
 					MealDetailResponse.MealDetail mealDetail = mealDetailResponse.getMeals().get(0);
 					tarifTextPane.setText(mealDetail.getStrMeal() +
 							" Tarifi:\n" + mealDetail.getStrInstructions());
+					saveMealDetail(mealDetail); // Seçilen yemek JSON’a yazılıyor
 				}
 			}
 		});
@@ -179,6 +186,21 @@ public class DemoApplication {
 //
 //		System.out.println("\nTarif: " + mealDetail.getStrInstructions());
 	}
-
-
+	// Tarif görüntülendiğinde meals.json dosyasına bilgileri kaydetme
+	private static void saveMealDetail(MealDetailResponse.MealDetail mealDetail) {
+		try {
+			ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+			File file = new File("meals.json");
+			MealDetailResponse response = LoadFromJSON.load(); // Mevcut verileri yükle
+			List<MealDetailResponse.MealDetail> meals = response.getMeals();
+			meals.removeIf(m -> m.getStrMeal().equalsIgnoreCase(mealDetail.getStrMeal())); // Aynı isimde yemek varsa sil
+			meals.add(mealDetail); // Yeni yemeği ekle
+			response.setMeals(meals); // Güncellenmiş veriyi dosyaya yaz
+			objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, response);
+			System.out.println("Meal Detail kaydedildi/güncellendi: " + mealDetail.getStrMeal());
+		} catch (IOException e) {
+			System.out.println("JSON dosyasına yazılırken bir hata oluştu: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }
