@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.boot.CommandLineRunner;
+import org.w3c.dom.css.RGBColor;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -56,6 +58,7 @@ public class DemoApplication {
 		tarifTextPane.setEditable(false); // Only for displaying
 		tarifTextPane.setPreferredSize(new Dimension(750,400)); // Boyutu ayarladık
 		tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
+		tarifTextPane.setBackground(Color.lightGray);
 		JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
 		// ROW1 ADDES
 		row1.add(label1);
@@ -67,6 +70,7 @@ public class DemoApplication {
 		row2.add(getMealDetailButton);
 		// ROW3 ADDES
 		row3.add(tarifScrollPane);
+		//seçilen kategori yemeklerini getir butonuna tıklandığında.
 		getMealsButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
