@@ -84,6 +84,9 @@ public class DemoApplication {
 				for(MealResponse.Meal m : meals){
 					cBoxMeals.addItem(m.getStrMeal());
 				}
+				JOptionPane.showMessageDialog(null,
+						cBoxCategories.getSelectedItem().toString()+ " kategorisi yemekleri getirildi.",
+						"Bilgi",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 
@@ -147,8 +150,6 @@ public class DemoApplication {
 //		for (int i = 0; i < categories.size(); i++) {
 //			System.out.println((i + 1) + ". " + categories.get(i).getStrCategory());
 //		}
-//
-//
 //		Scanner sc = new Scanner(System.in);
 //		System.out.print("Bir kategori seçin (1 - " + categories.size() + "): ");
 //		int categoryChoice = sc.nextInt();
