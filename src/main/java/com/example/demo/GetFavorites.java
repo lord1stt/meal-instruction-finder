@@ -1,4 +1,4 @@
-package com.example.recipeapp;
+package com.example.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper; //serialize/deserialize işlemleri için. JSON ile nesneler arası dönüşüm için
 import com.fasterxml.jackson.databind.SerializationFeature; //Tarihleri sayıya çevirmek yerine ISO 8601 biçiminde (yyyy-MM-dd) yazmamızı sağlar.
