@@ -2,7 +2,8 @@ package com.example.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import java.util.Collections;
+import java.util.ArrayList;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -14,7 +15,7 @@ public class LoadFromJSON {
         try {
             return mapper.readValue(new File(INPUT_FILE_PATH), MealDetailResponse.class);
         } catch (IOException e) {
-            return new MealDetailResponse(Collections.emptyList()); // Boş liste döndür
+            return new MealDetailResponse(new ArrayList<>()); // Boş liste döndür
         }
     }
 }
