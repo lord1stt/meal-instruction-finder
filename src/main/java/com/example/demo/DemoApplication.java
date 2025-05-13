@@ -39,6 +39,7 @@ public class DemoApplication {
 		// GUI BAŞLANGIÇ
 		JFrame frame = new JFrame();
 		frame.setSize(900, 500);
+		frame.setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
 		JPanel row1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel row2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel row3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -62,7 +63,7 @@ public class DemoApplication {
 		// JTextPane for meal recipe
 		JTextPane tarifTextPane = new JTextPane();
 		tarifTextPane.setEditable(false); // Only for displaying
-		tarifTextPane.setPreferredSize(new Dimension(750,400)); // Boyutu ayarladık
+		tarifTextPane.setPreferredSize(new Dimension(750,350)); // Boyutu ayarladık
 		tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
 		tarifTextPane.setBackground(Color.lightGray);
 		JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
