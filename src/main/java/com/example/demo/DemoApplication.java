@@ -7,20 +7,56 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.boot.CommandLineRunner;
 import org.w3c.dom.css.RGBColor;
+import org.yaml.snakeyaml.scanner.Constant;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 @SpringBootApplication
 public class DemoApplication {
+	public static final String LG_ENG = "en";
+	public static final String LG_TR = "tr";
+	public static String translateText(String text, String source, String target) {
+		System.out.println("--translateText() fonksiyonu çalıştı--");
+		String url = "https://libretranslate.de/translate";
+
+		RestTemplate restTemplate = new RestTemplate();
+
+		// JSON verisini Map ile hazırla
+		Map<String, String> requestBody = new HashMap<>();
+		requestBody.put("q", text);
+		requestBody.put("source", source);
+		requestBody.put("target", target);
+		requestBody.put("format", "text");
+		System.out.println("Json verisi map ile hazırlandı.");
+		// Header ayarları
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		System.out.println("Header ayarları yapıldı.");
+
+		// Request oluştur
+		HttpEntity<Map<String, String>> entity = new HttpEntity<>(requestBody, headers);
+		System.out.println("Request oluşturuldu.");
+
+		// POST işlemi
+		ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+		System.out.println("Post işlemi yapıldı");
+
+		return response.getBody();
+	}
 	public static void GUI(){
 		//		SpringApplication.run(DemoApplication.class, args);
 		// Creating instance of JFrame
@@ -51,14 +87,14 @@ public class DemoApplication {
 		for(Category c : categories){
 			cBoxCategories.addItem(c.getStrCategory());
 		}
-
 		JButton getMealsButton = new JButton("Yemekleri getir.");
 		JTextField newTextField = new JTextField(20);
-		JLabel label1 = new JLabel("bir kategori seçin:  ");
-		JLabel label2 = new JLabel("bir yemek seçin:  ");
-		label1.setFont(new Font("Verdana", Font.PLAIN, 18));
-		label2.setFont(new Font("Verdana", Font.PLAIN, 18));
+		JLabel label1 = new JLabel("bir kategori seçin:  ".toUpperCase());
+		JLabel label2 = new JLabel("bir yemek seçin:  ".toUpperCase());
+		label1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
+		label2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
 		JComboBox<String> cBoxMeals = new JComboBox<>();
+		cBoxMeals.setMinimumSize(new Dimension(150,cBoxMeals.getHeight()));
 		JButton getMealDetailButton = new JButton("Yemek tarifini getir.");
 		// JTextPane for meal recipe
 		JTextPane tarifTextPane = new JTextPane();
@@ -67,6 +103,8 @@ public class DemoApplication {
 		tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
 		tarifTextPane.setBackground(Color.lightGray);
 		JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
+		JButton translateButton = new JButton("Tarifi türkçeye çevir.");
+//		translateButton.setMargin(new Insets(0,400,0,0));
 		// ROW1 ADDES
 		row1.add(label1);
 		row1.add(cBoxCategories);
@@ -75,8 +113,13 @@ public class DemoApplication {
 		row2.add(label2);
 		row2.add(cBoxMeals);
 		row2.add(getMealDetailButton);
+		row2.add(translateButton);
+//		System.out.println("getMealDetailButton Location:" + getMealDetailButton.getLocation());
+//		System.out.println("Translate Button Location:" + translateButton.getLocation());
 		// ROW3 ADDES
 		row3.add(tarifScrollPane);
+		final String[] mealInstruction = new String[1];
+
 		//seçilen kategori yemeklerini getir butonuna tıklandığında.
 		getMealsButton.addActionListener(new ActionListener() {
 			@Override
@@ -111,7 +154,7 @@ public class DemoApplication {
 							"Seçilen yemek:" + cBoxMeals.getSelectedItem().toString() +
 									"\nYemek tarifi getiriliyor..",
 							"Bilgi",JOptionPane.INFORMATION_MESSAGE);
-					int mealId = cBoxMeals.getSelectedIndex(); // meal id'si getirilecek.
+					int mealIndex = cBoxMeals.getSelectedIndex(); // meal id'si getirilecek.
 					String mealName = cBoxMeals.getSelectedItem().toString();
 					StringBuilder sbMealName = new StringBuilder(mealName);
 					for (int i = 0; i < sbMealName.length(); i++) {
@@ -120,14 +163,33 @@ public class DemoApplication {
 						}
 					}
 					String mealDetailBaseUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-					String mealDetailUrl = mealDetailBaseUrl + sbMealName.toString();
+					String mealDetailUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s="
+							+ URLEncoder.encode(mealName, StandardCharsets.UTF_8);
 					System.out.println("Meal detail url: " +mealDetailUrl);
+
 					MealDetailResponse mealDetailResponse =
 							restTemplate.getForObject(mealDetailUrl, MealDetailResponse.class);
 					MealDetailResponse.MealDetail mealDetail = mealDetailResponse.getMeals().get(0);
+					mealInstruction[0] = mealDetail.getStrInstructions();
 					tarifTextPane.setText(mealDetail.getStrMeal() +
-							" Tarifi:\n" + mealDetail.getStrInstructions());
+							" Tarifi:\n" + mealInstruction[0]);
 					saveMealDetail(mealDetail); // Seçilen yemek JSON'a yazılıyor
+				}
+			}
+		});
+		// translate button click event
+		translateButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(tarifTextPane.getText() == null || tarifTextPane.getText().trim() == "" ||
+						mealInstruction[0] == null){
+					JOptionPane.showMessageDialog(null,
+							"Tarif getirilmedi.",
+							"Hata",JOptionPane.ERROR_MESSAGE);
+				}
+				else{
+					String translatedText = translateText(mealInstruction[0], LG_ENG, LG_TR);
+					tarifTextPane.setText(translatedText);
 				}
 			}
 		});
