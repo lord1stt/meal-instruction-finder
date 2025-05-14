@@ -51,16 +51,18 @@ public class DemoApplication {
 		frame.setResizable(false);
 
 		//PANELS
+		JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JPanel categoriesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		categoriesPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
 		JPanel mealsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		mealsPanel.setBackground(Color.gray);
+		mealsPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
+//		mealsPanel.setBackground(Color.gray);
 		JPanel instructionPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
-		categoriesPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
-		mealsPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
-
 		//ADDING PANELS TO CONTAINER
+		frame.getContentPane().add(headerPanel);
+		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
 		frame.getContentPane().add(categoriesPanel);
 		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
 		frame.getContentPane().add(mealsPanel);
@@ -69,10 +71,10 @@ public class DemoApplication {
 		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
 		frame.getContentPane().add(buttonsPanel);
 
-
-
 		//LABEL & TEXTFIELD
 		JTextField newTextField = new JTextField(20);
+		JLabel headerLabel = new JLabel("YEMEK TARİFİ UYGULAMASI".toUpperCase());
+		headerLabel.setFont(new Font(Font.SANS_SERIF,Font.BOLD,25));
 		JLabel label1 = new JLabel("bir kategori seçin:  ".toUpperCase());
 		JLabel label2 = new JLabel("bir yemek seçin:  ".toUpperCase());
 		label1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
@@ -97,6 +99,8 @@ public class DemoApplication {
 		cBoxMeals.setMaximumSize(new Dimension(100,400));
 		JComboBox<String> cBoxCategories = new JComboBox<>();
 		// PANEL ADDES
+		headerPanel.add(headerLabel);
+
 		categoriesPanel.add(label1);
 		categoriesPanel.add(cBoxCategories);
 		categoriesPanel.add(getMealsButton);
@@ -107,6 +111,7 @@ public class DemoApplication {
 		mealsPanel.add(translateButton);
 
 		instructionPanel.add(tarifScrollPane);
+
 		buttonsPanel.add(historyButton);
 		buttonsPanel.add(addToFavButton);
 
