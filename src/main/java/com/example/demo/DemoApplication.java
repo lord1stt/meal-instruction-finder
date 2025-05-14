@@ -13,9 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.boot.CommandLineRunner;
-import org.w3c.dom.css.RGBColor;
-import org.yaml.snakeyaml.scanner.Constant;
 import com.deepl.api.*;
 import javax.swing.*;
 import java.awt.*;
@@ -23,12 +20,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
 import java.util.List;
 
 @SpringBootApplication
 public class DemoApplication {
-
 	public static final String LG_ENG = "en";
 	public static final String LG_TR = "tr";
 	public static String translateTextFunction(String text, String sourceLang, String targetLang)  throws Exception {
@@ -41,76 +36,91 @@ public class DemoApplication {
 		System.out.println("Çevirilen text: " + translatedText); // çevirilen metin
 		return translatedText;
 	}
-	public static void GUI(){
-		//		SpringApplication.run(DemoApplication.class, args);
-		// Creating instance of JFrame
 
-	}
 	public static void main(String[] args) {
-//		GUI();
+		//VARIABLES FOR USING API
 		RestTemplate restTemplate = new RestTemplate();
+
+		//CURRENT MEAL VARIABLES(AS 1 ELEMENT ARRAY)
 		final String[] currentMeal = new String[1];
+		final String[] mealInstruction = new String[1];
 
-		String url = "https://www.themealdb.com/api/json/v1/1/categories.php";
+		// GUI SETTINGS
 
-
-		CategoryResponse categoryResponse = restTemplate.getForObject(url, CategoryResponse.class);
-		List<Category> categories = categoryResponse.getCategories();
-		// GUI BAŞLANGIÇ
+		//FRAME SETTINGS
 		JFrame frame = new JFrame();
-		frame.setSize(900, 500);
+		frame.setSize(950, 500);
 		frame.setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
+		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setResizable(false);
+
+		//PANELS
 		JPanel row1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel row2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		row2.setBackground(Color.gray);
 		JPanel row3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-//		row3.setBackground(Color.gray);
-		frame.setLocation(400,200);
+		row1.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
+		row2.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
 
-		JComboBox<String> cBoxCategories = new JComboBox<>();
-		int i = 0;
-		for(Category c : categories){
-			cBoxCategories.addItem(c.getStrCategory());
-		}
-		JButton getMealsButton = new JButton("Yemekleri getir.");
+		frame.getContentPane().add(row1);
+		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
+		frame.getContentPane().add(row2);
+		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
+		frame.getContentPane().add(row3);
+		JButton historyButton = new JButton("Tarif Geçmişi");
+
+
+		//LABEL & TEXTFIELD
 		JTextField newTextField = new JTextField(20);
 		JLabel label1 = new JLabel("bir kategori seçin:  ".toUpperCase());
 		JLabel label2 = new JLabel("bir yemek seçin:  ".toUpperCase());
 		label1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
 		label2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
-		JComboBox<String> cBoxMeals = new JComboBox<>();
-		cBoxMeals.setMinimumSize(new Dimension(150,cBoxMeals.getHeight()));
+
+		//BUTTONS
 		JButton getMealDetailButton = new JButton("Yemek tarifini getir.");
-		// JTextPane for meal recipe
+		JButton translateButton = new JButton("Tarifi türkçeye çevir.");
+		JButton getMealsButton = new JButton("Yemekleri getir.");
+		// JTEXTPANE & JSCROLLPANE
 		JTextPane tarifTextPane = new JTextPane();
 		tarifTextPane.setEditable(false); // Only for displaying
 		tarifTextPane.setPreferredSize(new Dimension(750,350)); // Boyutu ayarladık
 		tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
 		tarifTextPane.setBackground(Color.lightGray);
 		JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
-		JButton translateButton = new JButton("Tarifi türkçeye çevir.");
-//		translateButton.setMargin(new Insets(0,400,0,0));
+		//COMBOBOXES
+		JComboBox<String> cBoxMeals = new JComboBox<>();
+		cBoxMeals.setMaximumSize(new Dimension(100,400));
+		JComboBox<String> cBoxCategories = new JComboBox<>();
 		// ROW1 ADDES
 		row1.add(label1);
 		row1.add(cBoxCategories);
 		row1.add(getMealsButton);
+
 		// ROW2 ADDES
 		row2.add(label2);
 		row2.add(cBoxMeals);
 		row2.add(getMealDetailButton);
 		row2.add(translateButton);
-//		System.out.println("getMealDetailButton Location:" + getMealDetailButton.getLocation());
-//		System.out.println("Translate Button Location:" + translateButton.getLocation());
+
 		// ROW3 ADDES
 		row3.add(tarifScrollPane);
-		final String[] mealInstruction = new String[1];
+		row3.add(historyButton);
 
+		// GETTING DATA FROM API TO CBOXCATEGORIES
+		String categoriesUrl = "https://www.themealdb.com/api/json/v1/1/categories.php";
+		CategoryResponse categoryResponse = restTemplate.getForObject(categoriesUrl, CategoryResponse.class);
+		List<Category> categories = categoryResponse.getCategories();
+		for(Category c : categories){
+			cBoxCategories.addItem(c.getStrCategory());
+		}
+		//HANDLING BUTTON CLICKS
 		//seçilen kategori yemeklerini getir butonuna tıklandığında.
 		getMealsButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				JOptionPane.showMessageDialog(null,
-//						newTextField.getText()+" yemek tarifi getiriliyor..",
-//						"Bilgi",JOptionPane.INFORMATION_MESSAGE);
 				String foodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
 						+ cBoxCategories.getSelectedItem().toString();
 				MealResponse mealResponse = restTemplate.getForObject(foodUrl, MealResponse.class);
@@ -124,7 +134,7 @@ public class DemoApplication {
 						"Bilgi",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-
+		//seçilen yemeğin tarifini getir butonuna tıklandığında.
 		getMealDetailButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -149,7 +159,7 @@ public class DemoApplication {
 					String mealDetailBaseUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 					String mealDetailUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s="
 							+ URLEncoder.encode(mealName, StandardCharsets.UTF_8);
-					System.out.println("Meal detail url: " +mealDetailUrl);
+					System.out.println("Meal detail Url: " +mealDetailUrl);
 
 					MealDetailResponse mealDetailResponse =
 							restTemplate.getForObject(mealDetailUrl, MealDetailResponse.class);
@@ -185,26 +195,9 @@ public class DemoApplication {
 				}
 			}
 		});
-		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-//		cBoxCategories.setPreferredSize(new Dimension(150, 25));
-//		cBoxMeals.setPreferredSize(new Dimension(150, 25));
-//		getMealsButton.setPreferredSize(new Dimension(140, 25));
-//		getMealDetailButton.setPreferredSize(new Dimension(140, 25));
 
-		row1.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
-		row2.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
-//		row1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-//		row2.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-		frame.getContentPane().add(row1);
-		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
-		frame.getContentPane().add(row2);
-		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
-		frame.getContentPane().add(row3);
-		JButton historyButton = new JButton("Tarif Geçmişi");
-//		JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		row3.add(historyButton);
 
-		// Tarif Geçmişi butonu için ActionListener eklendi
+		// Tarif Geçmişi butonuna tıklandığında
 		historyButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -213,43 +206,8 @@ public class DemoApplication {
 			}
 		});
 
-//		frame.getContentPane().add(Box.createVerticalStrut(100)); // Üstünden biraz boşluk
-//		frame.getContentPane().add(bottomPanel);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.setResizable(false);
-//		System.out.println("Kategoriler:");
-//		for (int i = 0; i < categories.size(); i++) {
-//			System.out.println((i + 1) + ". " + categories.get(i).getStrCategory());
-//		}
-//		Scanner sc = new Scanner(System.in);
-//		System.out.print("Bir kategori seçin (1 - " + categories.size() + "): ");
-//		int categoryChoice = sc.nextInt();
-//
-//
-//		String selectedCategory = categories.get(categoryChoice - 1).getStrCategory();
-//		System.out.println("Seçilen Kategori: " + selectedCategory);
-//
-//		String foodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + selectedCategory;
-//		MealResponse mealResponse = restTemplate.getForObject(foodUrl, MealResponse.class);
-//		List<MealResponse.Meal> meals = mealResponse.getMeals();
-//
-//		System.out.println("Yemekler:");
-//		for (int i = 0; i < meals.size(); i++) {
-//			System.out.println((i + 1) + ". " + meals.get(i).getStrMeal());
-//		}
-//
-//		System.out.print("Bir yemek seçin (1 - " + meals.size() + "): ");
-//		int mealChoice = sc.nextInt();
-//
-//		String selectedMealId = meals.get(mealChoice - 1).getIdMeal();
-//		System.out.println("Seçilen Yemek: " + meals.get(mealChoice - 1).getStrMeal());
-//
-//		String mealDetailUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + selectedMealId;
-//		MealDetailResponse mealDetailResponse = restTemplate.getForObject(mealDetailUrl, MealDetailResponse.class);
-//		MealDetailResponse.MealDetail mealDetail = mealDetailResponse.getMeals().get(0);
-//
-//		System.out.println("\nTarif: " + mealDetail.getStrInstructions());
+
+
 	}
 	// Tarif görüntülendiğinde meals.json dosyasına bilgileri kaydetme
 	private static void saveMealDetail(MealDetailResponse.MealDetail mealDetail) {
