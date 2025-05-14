@@ -11,11 +11,12 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.boot.CommandLineRunner;
 import org.w3c.dom.css.RGBColor;
 import org.yaml.snakeyaml.scanner.Constant;
-
+import com.deepl.api.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -27,35 +28,18 @@ import java.util.List;
 
 @SpringBootApplication
 public class DemoApplication {
+
 	public static final String LG_ENG = "en";
 	public static final String LG_TR = "tr";
-	public static String translateText(String text, String source, String target) {
-		System.out.println("--translateText() fonksiyonu çalıştı--");
-		String url = "https://libretranslate.de/translate";
-
-		RestTemplate restTemplate = new RestTemplate();
-
-		// JSON verisini Map ile hazırla
-		Map<String, String> requestBody = new HashMap<>();
-		requestBody.put("q", text);
-		requestBody.put("source", source);
-		requestBody.put("target", target);
-		requestBody.put("format", "text");
-		System.out.println("Json verisi map ile hazırlandı.");
-		// Header ayarları
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		System.out.println("Header ayarları yapıldı.");
-
-		// Request oluştur
-		HttpEntity<Map<String, String>> entity = new HttpEntity<>(requestBody, headers);
-		System.out.println("Request oluşturuldu.");
-
-		// POST işlemi
-		ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
-		System.out.println("Post işlemi yapıldı");
-
-		return response.getBody();
+	public static String translateTextFunction(String text, String sourceLang, String targetLang)  throws Exception {
+		Translator translator;
+		String authKey = "16b4af4f-4b68-4cde-b469-40799ba88e35:fx";  // Replace with your key
+		translator = new com.deepl.api.Translator(authKey);
+		TextResult result =
+				translator.translateText(text, sourceLang, targetLang);
+		String translatedText =result.getText();
+		System.out.println("Çevirilen text: " + translatedText); // çevirilen metin
+		return translatedText;
 	}
 	public static void GUI(){
 		//		SpringApplication.run(DemoApplication.class, args);
@@ -65,7 +49,7 @@ public class DemoApplication {
 	public static void main(String[] args) {
 //		GUI();
 		RestTemplate restTemplate = new RestTemplate();
-
+		final String[] currentMeal = new String[1];
 
 		String url = "https://www.themealdb.com/api/json/v1/1/categories.php";
 
@@ -171,7 +155,8 @@ public class DemoApplication {
 							restTemplate.getForObject(mealDetailUrl, MealDetailResponse.class);
 					MealDetailResponse.MealDetail mealDetail = mealDetailResponse.getMeals().get(0);
 					mealInstruction[0] = mealDetail.getStrInstructions();
-					tarifTextPane.setText(mealDetail.getStrMeal() +
+					currentMeal[0] = mealDetail.getStrMeal();
+					tarifTextPane.setText(currentMeal[0]  +
 							" Tarifi:\n" + mealInstruction[0]);
 					saveMealDetail(mealDetail); // Seçilen yemek JSON'a yazılıyor
 				}
@@ -184,12 +169,19 @@ public class DemoApplication {
 				if(tarifTextPane.getText() == null || tarifTextPane.getText().trim() == "" ||
 						mealInstruction[0] == null){
 					JOptionPane.showMessageDialog(null,
-							"Tarif getirilmedi.",
-							"Hata",JOptionPane.ERROR_MESSAGE);
+							"Tarif çevirilemedi çünkü geçerli tarif yok.",
+							"Hata", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
-					String translatedText = translateText(mealInstruction[0], LG_ENG, LG_TR);
-					tarifTextPane.setText(translatedText);
+                    String translatedText = null;
+                    try {
+                        translatedText = translateTextFunction(
+								currentMeal[0]  + " Tarifi:\n" + mealInstruction[0],
+								LG_ENG, LG_TR);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    tarifTextPane.setText(translatedText);
 				}
 			}
 		});
