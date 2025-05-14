@@ -16,7 +16,7 @@ public class HistoryPanel extends JFrame {
 
     public HistoryPanel() {
         setTitle("Tarif Geçmişi");
-        setSize(800, 500);
+        setSize(1200, 500);
         setLocationRelativeTo(null);
 
         // Tablo modeli oluştur

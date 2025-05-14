@@ -5,13 +5,7 @@ import java.io.IOException;
 import java.io.File;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 import com.deepl.api.*;
 import javax.swing.*;
@@ -57,19 +51,24 @@ public class DemoApplication {
 		frame.setResizable(false);
 
 		//PANELS
-		JPanel row1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel row2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		row2.setBackground(Color.gray);
-		JPanel row3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		row1.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
-		row2.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
+		JPanel categoriesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JPanel mealsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		mealsPanel.setBackground(Color.gray);
+		JPanel instructionPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
-		frame.getContentPane().add(row1);
+		categoriesPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
+		mealsPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
+
+		//ADDING PANELS TO CONTAINER
+		frame.getContentPane().add(categoriesPanel);
 		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
-		frame.getContentPane().add(row2);
+		frame.getContentPane().add(mealsPanel);
 		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
-		frame.getContentPane().add(row3);
-		JButton historyButton = new JButton("Tarif Geçmişi");
+		frame.getContentPane().add(instructionPanel);
+		frame.getContentPane().add(Box.createVerticalStrut(5)); // 5 piksel boşluk
+		frame.getContentPane().add(buttonsPanel);
+
 
 
 		//LABEL & TEXTFIELD
@@ -83,6 +82,9 @@ public class DemoApplication {
 		JButton getMealDetailButton = new JButton("Yemek tarifini getir.");
 		JButton translateButton = new JButton("Tarifi türkçeye çevir.");
 		JButton getMealsButton = new JButton("Yemekleri getir.");
+		JButton historyButton = new JButton("Tarif Geçmişini Görüntüle");
+		JButton addToFavButton = new JButton("Bu Tarifi Favorilere Ekle");
+
 		// JTEXTPANE & JSCROLLPANE
 		JTextPane tarifTextPane = new JTextPane();
 		tarifTextPane.setEditable(false); // Only for displaying
@@ -94,20 +96,20 @@ public class DemoApplication {
 		JComboBox<String> cBoxMeals = new JComboBox<>();
 		cBoxMeals.setMaximumSize(new Dimension(100,400));
 		JComboBox<String> cBoxCategories = new JComboBox<>();
-		// ROW1 ADDES
-		row1.add(label1);
-		row1.add(cBoxCategories);
-		row1.add(getMealsButton);
+		// PANEL ADDES
+		categoriesPanel.add(label1);
+		categoriesPanel.add(cBoxCategories);
+		categoriesPanel.add(getMealsButton);
 
-		// ROW2 ADDES
-		row2.add(label2);
-		row2.add(cBoxMeals);
-		row2.add(getMealDetailButton);
-		row2.add(translateButton);
+		mealsPanel.add(label2);
+		mealsPanel.add(cBoxMeals);
+		mealsPanel.add(getMealDetailButton);
+		mealsPanel.add(translateButton);
 
-		// ROW3 ADDES
-		row3.add(tarifScrollPane);
-		row3.add(historyButton);
+		instructionPanel.add(tarifScrollPane);
+		buttonsPanel.add(historyButton);
+		buttonsPanel.add(addToFavButton);
+
 
 		// GETTING DATA FROM API TO CBOXCATEGORIES
 		String categoriesUrl = "https://www.themealdb.com/api/json/v1/1/categories.php";
@@ -116,7 +118,9 @@ public class DemoApplication {
 		for(Category c : categories){
 			cBoxCategories.addItem(c.getStrCategory());
 		}
+
 		//HANDLING BUTTON CLICKS
+
 		//seçilen kategori yemeklerini getir butonuna tıklandığında.
 		getMealsButton.addActionListener(new ActionListener() {
 			@Override
@@ -188,10 +192,14 @@ public class DemoApplication {
                         translatedText = translateTextFunction(
 								currentMeal[0]  + " Tarifi:\n" + mealInstruction[0],
 								LG_ENG, LG_TR);
+						tarifTextPane.setText(translatedText);
                     } catch (Exception ex) {
-                        throw new RuntimeException(ex);
+//                        throw new RuntimeException(ex);
+						JOptionPane.showMessageDialog(null,
+								ex.getMessage(),
+								"Hata", JOptionPane.ERROR_MESSAGE);
                     }
-                    tarifTextPane.setText(translatedText);
+
 				}
 			}
 		});
