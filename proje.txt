@@ -14,6 +14,7 @@
 	- 2.2 adet buton olacak:
 		*Son 1 haftanın favorilerini PDF'e dönüştür butonu. PDF ismi = " Latest_Week_Favorites.pdf "
 		*Favorileri Mail gönder butonu. Latest_Week_Favorites.pdf isimli dosyayı mail ile kullanıcıya atacağız. Mail Subjecti = "Son 1 Haftanın Favorilere Eklenen Tarifleri". Mail içeriği = "Bu yemekleri yapmak isteyebilirsiniz. Son 1 haftada favoriye eklediğiniz yemek tarifleri ekteki PDF'tedir.". Mail eki: "Latest_Week_Favorites.pdf".
+		bu 2 buton ve arkadaki backend işlemlerini yapacak kişi =  Semih.
 	- 2.pencerede tabloda bazı column width ayarları. Yapacak kişi Furkan.
 	- 2.penceredeki tabloda bir tarife tıklandığında aşağıda bir text pane'de tarif detayları görüntülenecek. Bunu tarifin tamamı tabloya sığmadığı için yapıyoruz. Yapacak kişi Ahmet.
 	-UNIT testler. Yapacak kişiler = herkes cuma günü kütüphanede.(Furkanın testler için hazır kodlarını kullanabiliriz.)
