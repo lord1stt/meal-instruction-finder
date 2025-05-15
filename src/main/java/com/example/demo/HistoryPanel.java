@@ -64,10 +64,10 @@ public class HistoryPanel extends JFrame {
         JButton refreshButton = new JButton("Yenile");
         refreshButton.addActionListener(e -> loadMealHistory());
 
-        JButton getPdfButton = new JButton("PDF'e Dönüştür.");
+        JButton getPdfButton = new JButton("Favorileri PDF'e Dönüştür.");
         getPdfButton.addActionListener(e -> convertToPdf());
 
-        JButton scheduleEmailButton = new JButton("Haftalık E-posta Ayarla");
+        JButton scheduleEmailButton = new JButton("E-posta gönder");
         scheduleEmailButton.addActionListener(e -> scheduleEmail());
 
         JPanel buttonPanel = new JPanel();
