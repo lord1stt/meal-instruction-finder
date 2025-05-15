@@ -128,6 +128,41 @@ public class DemoApplication {
 
 		//HANDLING BUTTON CLICKS
 
+		//Bu Tarifi Favorilere Ekle butonuna tıklandığında
+		addToFavButton.addActionListener(e -> {
+			try {
+				MealDetailResponse response = LoadFromJSON.load();
+				List<MealDetailResponse.MealDetail> meals = response.getMeals();
+				String selectedMealName = (String) cBoxMeals.getSelectedItem();
+				if(selectedMealName == null) {
+					JOptionPane.showMessageDialog(frame, "Favorilere eklemek için önce bir yemek seçmelisiniz.");
+					return;
+				}
+				boolean alreadyFavorite = false;
+				for (MealDetailResponse.MealDetail meal : meals) {
+					if (meal.getStrMeal().equals(selectedMealName)) {
+						if(meal.isFavorite()) {
+							alreadyFavorite = true;
+							break;
+						} else {
+							meal.setFavorite(true);
+							meal.setAddFavDate(java.time.LocalDate.now().toString());
+							SavetoJSON.save(response, "meals.json");
+							JOptionPane.showMessageDialog(frame, meal.getStrMeal() + " favorilere eklendi.");
+							return;
+						}
+					}
+				}
+				if(alreadyFavorite) {
+					JOptionPane.showMessageDialog(frame, "Bu yemek zaten favorilerde.");
+				} else {
+					JOptionPane.showMessageDialog(frame, "Seçilen yemek JSON dosyasında bulunamadı.");
+				}
+			} catch (IOException ex) {
+				JOptionPane.showMessageDialog(frame, "Favori eklenirken hata: " + ex.getMessage());
+			}
+		});
+
 		//seçilen kategori yemeklerini getir butonuna tıklandığında.
 		getMealsButton.addActionListener(new ActionListener() {
 			@Override

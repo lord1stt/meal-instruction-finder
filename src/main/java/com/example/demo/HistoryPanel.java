@@ -8,6 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+import java.util.Properties;
+import java.io.File;
 
 public class HistoryPanel extends JFrame {
 
@@ -38,21 +43,21 @@ public class HistoryPanel extends JFrame {
         // Tarif sütununu düzgün göstermek için cell renderer
         historyTable.getColumnModel().getColumn(1).
                 setCellRenderer(new DefaultTableCellRenderer() {
-            @Override
-            public Component getTableCellRendererComponent(JTable table, Object value,
-                                                           boolean isSelected, boolean hasFocus, int row, int column) {
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table, Object value,
+                                                                   boolean isSelected, boolean hasFocus, int row, int column) {
 
-                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                if (c instanceof JLabel) {
-                    String text = (String) value;
-                    if (text.length() > 100) {
-                        text = text.substring(0, 100) + "...";
+                        Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        if (c instanceof JLabel) {
+                            String text = (String) value;
+                            if (text.length() > 100) {
+                                text = text.substring(0, 100) + "...";
+                            }
+                            ((JLabel) c).setText(text);
+                        }
+                        return c;
                     }
-                    ((JLabel) c).setText(text);
-                }
-                return c;
-            }
-        });
+                });
 
         // İşlemler sütunu için buton renderer ve editor
         historyTable.getColumnModel().getColumn(4).setCellRenderer(new ButtonRenderer());
@@ -108,10 +113,97 @@ public class HistoryPanel extends JFrame {
         }
     }
     private void convertToPdf(){
-        // PDF DÖNÜŞÜMÜ BURADA YAPILACAK.
+        try {
+            List<MealDetailResponse.MealDetail> favorites = GetFavorites.getFavorites();
+
+            if (favorites.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Hiç favori yemek bulunamadı.", "Uyarı", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+
+            String dest = "favori_tarifler.pdf";
+            com.itextpdf.kernel.pdf.PdfWriter writer = new com.itextpdf.kernel.pdf.PdfWriter(dest);
+            com.itextpdf.kernel.pdf.PdfDocument pdfDoc = new com.itextpdf.kernel.pdf.PdfDocument(writer);
+            com.itextpdf.layout.Document document = new com.itextpdf.layout.Document(pdfDoc);
+
+            document.add(new com.itextpdf.layout.element.Paragraph("Favori Tarifler").setBold().setFontSize(16));
+
+            for (MealDetailResponse.MealDetail meal : favorites) {
+                document.add(new com.itextpdf.layout.element.Paragraph("Yemek Adı: " + meal.getStrMeal()));
+                document.add(new com.itextpdf.layout.element.Paragraph("Talimatlar: " + meal.getStrInstructions()));
+                document.add(new com.itextpdf.layout.element.Paragraph("Favori Ekleme Tarihi: " + meal.getAddFavDate()));
+                document.add(new com.itextpdf.layout.element.Paragraph("--------------------------------------------------"));
+            }
+
+            document.close();
+            JOptionPane.showMessageDialog(this, "PDF başarıyla oluşturuldu: " + dest);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "PDF oluşturulurken hata oluştu: " + e.getMessage(), "Hata", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
     private void scheduleEmail(){
-        //EMAİL GÖNDERME İŞLEMİ BURADA YAPILACAK.
+        String to = "alicinin.maili@gmail.com";  // Alıcının e-posta adresi
+        String from = "gonderen@gmail.com";      // Senin Gmail adresin
+        final String username = "gonderen@gmail.com";  // Gmail kullanıcı adın
+        final String password = "uygulama_sifren";     // Gmail uygulama şifren
+
+        // SMTP ayarları
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+            // Önce PDF dosyasını oluştur
+            convertToPdf();
+
+            // E-posta mesajını oluştur
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject("Haftalık Favori Tarifler Raporu");
+
+            // Metin kısmı
+            BodyPart messageBodyPart = new MimeBodyPart();
+            messageBodyPart.setText("Merhaba,\n\nFavori tarifleriniz ektedir.\n\nAfiyet olsun!");
+
+            // PDF dosya eki
+            MimeBodyPart attachmentPart = new MimeBodyPart();
+            String filename = "favori_tarifler.pdf";
+            File file = new File(filename);
+            if(!file.exists()){
+                JOptionPane.showMessageDialog(this, "PDF dosyası bulunamadı: " + filename);
+                return;
+            }
+            DataSource source = new FileDataSource(filename);
+            attachmentPart.setDataHandler(new DataHandler(source));
+            attachmentPart.setFileName(filename);
+
+            // Multipart yapısı (metin + ek)
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(messageBodyPart);
+            multipart.addBodyPart(attachmentPart);
+
+            message.setContent(multipart);
+
+            // Maili gönder
+            Transport.send(message);
+
+            JOptionPane.showMessageDialog(this, "E-posta başarıyla gönderildi.");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "E-posta gönderilemedi: " + e.getMessage(), "Hata", JOptionPane.ERROR_MESSAGE);
+        }
     }
     // Buton renderer sınıfı
     class ButtonRenderer extends JButton implements javax.swing.table.TableCellRenderer {
