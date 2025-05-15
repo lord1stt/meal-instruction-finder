@@ -20,6 +20,7 @@ import java.util.List;
 public class DemoApplication {
 	public static final String LG_ENG = "en";
 	public static final String LG_TR = "tr";
+	// pushlanacak metin
 	public static String translateTextFunction(String text, String sourceLang, String targetLang)  throws Exception {
 		Translator translator;
 		String authKey = "16b4af4f-4b68-4cde-b469-40799ba88e35:fx";  // Replace with your key
