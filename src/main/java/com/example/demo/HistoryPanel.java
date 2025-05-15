@@ -64,8 +64,16 @@ public class HistoryPanel extends JFrame {
         JButton refreshButton = new JButton("Yenile");
         refreshButton.addActionListener(e -> loadMealHistory());
 
+        JButton getPdfButton = new JButton("PDF'e Dönüştür.");
+        getPdfButton.addActionListener(e -> convertToPdf());
+
+        JButton scheduleEmailButton = new JButton("Haftalık E-posta Ayarla");
+        scheduleEmailButton.addActionListener(e -> scheduleEmail());
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(refreshButton);
+        buttonPanel.add(getPdfButton);
+        buttonPanel.add(scheduleEmailButton);
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
         loadMealHistory();
@@ -99,7 +107,12 @@ public class HistoryPanel extends JFrame {
                     "Hata", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    private void convertToPdf(){
+        // PDF DÖNÜŞÜMÜ BURADA YAPILACAK.
+    }
+    private void scheduleEmail(){
+        //EMAİL GÖNDERME İŞLEMİ BURADA YAPILACAK.
+    }
     // Buton renderer sınıfı
     class ButtonRenderer extends JButton implements javax.swing.table.TableCellRenderer {
 

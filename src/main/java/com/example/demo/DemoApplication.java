@@ -94,10 +94,12 @@ public class DemoApplication {
 		tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
 		tarifTextPane.setBackground(Color.lightGray);
 		JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
+
 		//COMBOBOXES
 		JComboBox<String> cBoxMeals = new JComboBox<>();
 		cBoxMeals.setMaximumSize(new Dimension(100,400));
 		JComboBox<String> cBoxCategories = new JComboBox<>();
+
 		// PANEL ADDES
 		headerPanel.add(headerLabel);
 
