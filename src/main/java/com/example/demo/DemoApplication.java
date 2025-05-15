@@ -143,6 +143,7 @@ public class DemoApplication {
 						"Bilgi",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
+
 		//seçilen yemeğin tarifini getir butonuna tıklandığında.
 		getMealDetailButton.addActionListener(new ActionListener() {
 			@Override
@@ -181,6 +182,7 @@ public class DemoApplication {
 				}
 			}
 		});
+
 		// translate button click event
 		translateButton.addActionListener(new ActionListener() {
 			@Override
@@ -208,7 +210,6 @@ public class DemoApplication {
 				}
 			}
 		});
-
 
 		// Tarif Geçmişi butonuna tıklandığında
 		historyButton.addActionListener(new ActionListener() {

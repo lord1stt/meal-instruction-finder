@@ -20,7 +20,7 @@ public class HistoryPanel extends JFrame {
         setLocationRelativeTo(null);
 
         // Tablo modeli oluştur
-        String[] columnNames = {"Yemek Adı", "Tarif", "Favorilerde", "Eklenme Tarihi", "İşlemler"};
+        String[] columnNames = {"Yemek Adı", "Tarif", "Favorilerde", "Fav Eklenme Tarihi", "İşlemler"};
         tableModel = new DefaultTableModel(columnNames, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -31,12 +31,13 @@ public class HistoryPanel extends JFrame {
         historyTable = new JTable(tableModel);
         historyTable.getColumnModel().getColumn(0).setPreferredWidth(150);
         historyTable.getColumnModel().getColumn(1).setPreferredWidth(400);
-        historyTable.getColumnModel().getColumn(2).setPreferredWidth(80);
-        historyTable.getColumnModel().getColumn(3).setPreferredWidth(100);
+        historyTable.getColumnModel().getColumn(2).setPreferredWidth(40);
+        historyTable.getColumnModel().getColumn(3).setPreferredWidth(80);
         historyTable.getColumnModel().getColumn(4).setPreferredWidth(70);
 
         // Tarif sütununu düzgün göstermek için cell renderer
-        historyTable.getColumnModel().getColumn(1).setCellRenderer(new DefaultTableCellRenderer() {
+        historyTable.getColumnModel().getColumn(1).
+                setCellRenderer(new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value,
                                                            boolean isSelected, boolean hasFocus, int row, int column) {
