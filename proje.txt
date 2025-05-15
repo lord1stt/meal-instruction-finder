@@ -1,0 +1,36 @@
+--yapılmışlar--
+	- 1.pencere arayüz tasarımı
+		- seçilen kategoriye ait olan yemekleri combobox'a ekleme
+		- seçilen yemeğe ait olan bilgileri(tarif vs.) TextPane'e ekleme, kullanıcıya gösterme
+		- 1.Pencereden 2.pencere(tarif geçmişi frame'i)'ye geçişi sağlayan buton(tarif geçmişi butonu)
+		- TextPane'deki tarifi türkçeye çevirecek bir "türkçeye çevir" butonu.
+	- 2.pencere arayüz tasarımı
+		- 2.pencere açılışında meals.json dosyasındaki verileri GUI'da (GUI = Kullanıcı Arayüzü) JTable ile görüntülemek. 
+		- JTable'daki verilerin hepsinin yanında Favorilere Ekle/Çıkar butonu olması. 
+		- Yenile isimli buton ile meals.json dosyasındaki verilerin güncel halini tabloya yeniden çekmek.
+		
+--yapılacaklar--
+	- 1.pencerede "bu tarifi favorilere ekle / çıkar" butonu. eğer tarif zaten favorilerde ise favorilerden çıkar yazıcak favorilerde değilse favorilere ekle yazıcak falan filan. Yapacak kişi Ebu ve Ahmet.
+	- 2.2 adet buton olacak:
+		*Son 1 haftanın favorilerini PDF'e dönüştür butonu. PDF ismi = " Latest_Week_Favorites.pdf "
+		*Favorileri Mail gönder butonu. Latest_Week_Favorites.pdf isimli dosyayı mail ile kullanıcıya atacağız. Mail Subjecti = "Son 1 Haftanın Favorilere Eklenen Tarifleri". Mail içeriği = "Bu yemekleri yapmak isteyebilirsiniz. Son 1 haftada favoriye eklediğiniz yemek tarifleri ekteki PDF'tedir.". Mail eki: "Latest_Week_Favorites.pdf".
+	- 2.pencerede tabloda bazı column width ayarları. Yapacak kişi Furkan.
+	- 2.penceredeki tabloda bir tarife tıklandığında aşağıda bir text pane'de tarif detayları görüntülenecek. Bunu tarifin tamamı tabloya sığmadığı için yapıyoruz. Yapacak kişi Ahmet.
+	-UNIT testler. Yapacak kişiler = herkes cuma günü kütüphanede.(Furkanın testler için hazır kodlarını kullanabiliriz.)
+--hocanın istedikleri--
+	*FALSE = HENÜZ YAPILMAMIŞLAR
+	*TRUE = YAPILACAKLAR
+	*? = BİLMİYORUM
+	-projenin maven projesi olması. (TRUE)
+	-pom.xml dolu olacak. (TRUE)
+	-Manuel Kütüphane eklemek yasak. (TRUE)
+	-Bir üçüncü parti API'den veri çekilerek projede kullanılacak. (TRUE)
+	-JavaMail API veya mock e-mail servisi ile e-posta gönderecek. (?)(semih hangi servisi kullandı bilmiyorum)
+	-Her önemli işlem log.txt dosyasına kaydedilecek. (FALSE)
+	-En az bir PDF veya Excel raporu üretilecek.(?)(semih yaptı galiba)
+	-Dosya tabanlı veri saklama gerekiyorsa doğru şekilde yapılacak. (TRUE)
+	-Hatalı durumlar kontrollü yakalanacak ve yönetilecek.(TRUE)
+	-JUnit ile en az 1-2 önemli fonksiyonun testi yapılacak. (FALSE)
+	-Görsel arayüz zorunludur. (TRUE)
+	-En az 1 ana kaynak için (entity) CRUD API uçları olacak.(FALSE)(ama kullandığımız api sadece CRUD'un R'si Read işlemlerine izin veriyor o yüzden bunu yapmamamız gerektiğini düşünüyorum. Burası bize sadece 10 puan kazandıracak ve şuan bunu yapmamız için GPT'ye sordum kendimiz bir API oluşturmamız gerekiyormuş. Baya meşakkatli zaman da yok bence böyle bir şey için projeyi yarın bitireceğiz.).
+	-haftalık favori raporları vs. (FALSE)
