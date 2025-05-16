@@ -72,12 +72,16 @@ public class HistoryPanel extends JFrame {
         JButton getPdfButton = new JButton("Favorileri PDF'e Dönüştür.");
         getPdfButton.addActionListener(e -> convertToPdf());
 
+        JTextField emailTextField = new JTextField(30);
+
+
         JButton scheduleEmailButton = new JButton("E-posta gönder");
-        scheduleEmailButton.addActionListener(e -> scheduleEmail());
+        scheduleEmailButton.addActionListener(e -> scheduleEmail(emailTextField.getText().trim()));
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(refreshButton);
         buttonPanel.add(getPdfButton);
+        buttonPanel.add(emailTextField);
         buttonPanel.add(scheduleEmailButton);
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
@@ -143,11 +147,20 @@ public class HistoryPanel extends JFrame {
         }
 
     }
-    private void scheduleEmail(){
-        String to = "alicinin.maili@gmail.com";  // Alıcının e-posta adresi
-        String from = "gonderen@gmail.com";      // Senin Gmail adresin
-        final String username = "gonderen@gmail.com";  // Gmail kullanıcı adın
-        final String password = "uygulama_sifren";     // Gmail uygulama şifren
+    private void scheduleEmail(String _emailTextField){
+//        String to = "yazikkafana5252@gmail.com";  // Alıcının e-posta adresi
+        if(_emailTextField == null || _emailTextField == ""){
+            JOptionPane.showMessageDialog(null,
+                    "Hata. Lütfen email alanını doldurun.",
+                    "Hata",
+                    );
+            return;
+        }
+        String to = _emailTextField;
+        String from = "furkantoparlak060@gmail.com";      // Senin Gmail adresin
+
+        final String username = "furkantoparlak060@gmail.com";  // Gmail kullanıcı adın
+        final String password = "zako uron nghz vttq";     // Gmail uygulama şifren
 
         // SMTP ayarları
         Properties props = new Properties();

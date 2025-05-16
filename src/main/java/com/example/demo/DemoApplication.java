@@ -155,7 +155,7 @@ public class DemoApplication {
 					}
 				}
 				if(alreadyFavorite) {
-					JOptionPane.showMessageDialog(frame, "Bu yemek zaten favorilerde.");
+					JOptionPane.showMessageDialog(frame, "Bu yemek zaten favorilerde. Favorilerden kaldırmak için tarif geçmişi penceresine gidin.");
 				} else {
 					JOptionPane.showMessageDialog(frame, "Seçilen yemek JSON dosyasında bulunamadı.");
 				}
