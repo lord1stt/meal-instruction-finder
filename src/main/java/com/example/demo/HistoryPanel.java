@@ -109,11 +109,13 @@ public class HistoryPanel extends JFrame {
             }
 
             historyTable.repaint();
+            Logger.log("Tarif geçmişi başarıyla yüklendi");
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this,
                     "Tarif geçmişi yüklenirken hata oluştu: " + e.getMessage(),
                     "Hata", JOptionPane.ERROR_MESSAGE);
+            Logger.logError("Tarif geçmişi yüklenirken hata: " + e.getMessage());
         }
     }
     private void convertToPdf(){
@@ -122,6 +124,7 @@ public class HistoryPanel extends JFrame {
 
             if (favorites.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Hiç favori yemek bulunamadı.", "Uyarı", JOptionPane.INFORMATION_MESSAGE);
+                Logger.log("PDF oluşturma isteği iptal edildi: Hiç favori yemek bulunamadı");
                 return;
             }
 
@@ -141,9 +144,11 @@ public class HistoryPanel extends JFrame {
 
             document.close();
             JOptionPane.showMessageDialog(this, "PDF başarıyla oluşturuldu: " + dest);
+            Logger.logPdfCreated(dest);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "PDF oluşturulurken hata oluştu: " + e.getMessage(), "Hata", JOptionPane.ERROR_MESSAGE);
+            Logger.logError("PDF oluşturulurken hata: " + e.getMessage());
         }
 
     }
@@ -161,12 +166,14 @@ public class HistoryPanel extends JFrame {
                         "Lütfen geçerli bir email adresi girin: ",
                         "Hata",
                         JOptionPane.ERROR_MESSAGE);
+                Logger.logError("Geçersiz e-posta adresi girişi: " + to);
             }
             else{
                 gmailAuth = true;
             }
         }while(!gmailAuth);
 
+        Logger.log("E-posta gönderimi için adres girildi: " + to);
         String from = "furkantoparlak060@gmail.com";      // Senin Gmail adresin
 
         final String username = "furkantoparlak060@gmail.com";  // Gmail kullanıcı adın
@@ -206,6 +213,7 @@ public class HistoryPanel extends JFrame {
             File file = new File(filename);
             if(!file.exists()){
                 JOptionPane.showMessageDialog(this, "PDF dosyası bulunamadı: " + filename);
+                Logger.logError("E-posta gönderimi iptal edildi: PDF dosyası bulunamadı - " + filename);
                 return;
             }
             DataSource source = new FileDataSource(filename);
@@ -223,9 +231,10 @@ public class HistoryPanel extends JFrame {
             Transport.send(message);
 
             JOptionPane.showMessageDialog(this, "E-posta başarıyla gönderildi.");
-
+            Logger.logEmailSent(to);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "E-posta gönderilemedi: " + e.getMessage(), "Hata", JOptionPane.ERROR_MESSAGE);
+            Logger.logError("E-posta gönderimi hatası: " + e.getMessage());
         }
     }
     // Buton renderer sınıfı
@@ -289,6 +298,13 @@ public class HistoryPanel extends JFrame {
                         // Tabloyu güncelle
                         loadMealHistory();
 
+                        // Log favori durumu değişikliği
+                        if (newFavoriteStatus) {
+                            Logger.logMealAddedToFavorites(selectedMeal.getStrMeal());
+                        } else {
+                            Logger.logMealRemovedFromFavorites(selectedMeal.getStrMeal());
+                        }
+
                         JOptionPane.showMessageDialog(button,
                                 selectedMeal.getStrMeal() +
                                         (newFavoriteStatus ? " favorilere eklendi." : " favorilerden çıkarıldı."));
@@ -297,6 +313,7 @@ public class HistoryPanel extends JFrame {
                     JOptionPane.showMessageDialog(button,
                             "İşlem sırasında hata oluştu: " + ex.getMessage(),
                             "Hata", JOptionPane.ERROR_MESSAGE);
+                    Logger.logError("Favori durumu değiştirilirken hata: " + ex.getMessage());
                 }
             }
             isPushed = false;

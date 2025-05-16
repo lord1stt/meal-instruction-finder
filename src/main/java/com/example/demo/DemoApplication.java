@@ -126,6 +126,7 @@ public class DemoApplication {
 		for(Category c : categories){
 			cBoxCategories.addItem(c.getStrCategory());
 		}
+		Logger.log("Kategoriler API'den alındı");
 
 		//HANDLING BUTTON CLICKS
 
@@ -137,6 +138,7 @@ public class DemoApplication {
 				String selectedMealName = (String) cBoxMeals.getSelectedItem();
 				if(selectedMealName == null) {
 					JOptionPane.showMessageDialog(frame, "Favorilere eklemek için önce bir yemek seçmelisiniz.");
+					Logger.logError("Favorilere eklemek için yemek seçilmedi");
 					return;
 				}
 				boolean alreadyFavorite = false;
@@ -149,6 +151,7 @@ public class DemoApplication {
 							meal.setFavorite(true);
 							meal.setAddFavDate(java.time.LocalDate.now().toString());
 							SavetoJSON.save(response, "meals.json");
+							Logger.logMealAddedToFavorites(meal.getStrMeal());
 							JOptionPane.showMessageDialog(frame, meal.getStrMeal() + " favorilere eklendi.");
 							return;
 						}
@@ -156,11 +159,14 @@ public class DemoApplication {
 				}
 				if(alreadyFavorite) {
 					JOptionPane.showMessageDialog(frame, "Bu yemek zaten favorilerde. Favorilerden kaldırmak için tarif geçmişi penceresine gidin.");
+					Logger.log("Zaten favorilerde olan yemek: " + selectedMealName);
 				} else {
 					JOptionPane.showMessageDialog(frame, "Seçilen yemek JSON dosyasında bulunamadı.");
+					Logger.logError("Seçilen yemek JSON dosyasında bulunamadı: " + selectedMealName);
 				}
 			} catch (IOException ex) {
 				JOptionPane.showMessageDialog(frame, "Favori eklenirken hata: " + ex.getMessage());
+				Logger.logError("Favori eklenirken hata: " + ex.getMessage());
 			}
 		});
 
@@ -168,6 +174,9 @@ public class DemoApplication {
 		getMealsButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String selectedCategory = cBoxCategories.getSelectedItem().toString();
+				Logger.logCategorySelected(selectedCategory);
+
 				String foodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
 						+ cBoxCategories.getSelectedItem().toString();
 				MealResponse mealResponse = restTemplate.getForObject(foodUrl, MealResponse.class);
@@ -176,6 +185,8 @@ public class DemoApplication {
 				for(MealResponse.Meal m : meals){
 					cBoxMeals.addItem(m.getStrMeal());
 				}
+				Logger.log(selectedCategory + " kategorisi için " + meals.size() + " yemek getirildi");
+
 				JOptionPane.showMessageDialog(null,
 						cBoxCategories.getSelectedItem().toString()+ " kategorisi yemekleri getirildi.",
 						"Bilgi",JOptionPane.INFORMATION_MESSAGE);
@@ -190,14 +201,17 @@ public class DemoApplication {
 					JOptionPane.showMessageDialog(null,
 							"Yemek seçilmedi",
 							"Hata",JOptionPane.ERROR_MESSAGE);
+					Logger.logError("Tarif getirilirken yemek seçilmedi");
 				}
 				else{
+					String mealName = cBoxMeals.getSelectedItem().toString();
+					Logger.logMealSelected(mealName);
+
 					JOptionPane.showMessageDialog(null,
 							"Seçilen yemek:" + cBoxMeals.getSelectedItem().toString() +
 									"\nYemek tarifi getiriliyor..",
 							"Bilgi",JOptionPane.INFORMATION_MESSAGE);
 					int mealIndex = cBoxMeals.getSelectedIndex(); // meal id'si getirilecek.
-					String mealName = cBoxMeals.getSelectedItem().toString();
 					StringBuilder sbMealName = new StringBuilder(mealName);
 					for (int i = 0; i < sbMealName.length(); i++) {
 						if (sbMealName.charAt(i) == ' ') {
@@ -216,6 +230,7 @@ public class DemoApplication {
 					currentMeal[0] = mealDetail.getStrMeal();
 					tarifTextPane.setText(currentMeal[0]  +
 							" Tarifi:\n" + mealInstruction[0]);
+					Logger.logRecipeRetrieved(currentMeal[0]);
 					saveMealDetail(mealDetail); // Seçilen yemek JSON'a yazılıyor
 				}
 			}
@@ -230,6 +245,7 @@ public class DemoApplication {
 					JOptionPane.showMessageDialog(null,
 							"Tarif çevirilemedi çünkü geçerli tarif yok.",
 							"Hata", JOptionPane.ERROR_MESSAGE);
+					Logger.logError("Çeviri yapılamadı - geçerli tarif yok");
 				}
 				else{
                     String translatedText = null;
@@ -238,11 +254,13 @@ public class DemoApplication {
 								currentMeal[0]  + " Tarifi:\n" + mealInstruction[0],
 								LG_ENG, LG_TR);
 						tarifTextPane.setText(translatedText);
+						Logger.logRecipeTranslated(currentMeal[0], LG_ENG, LG_TR);
                     } catch (Exception ex) {
 //                        throw new RuntimeException(ex);
 						JOptionPane.showMessageDialog(null,
 								ex.getMessage(),
 								"Hata", JOptionPane.ERROR_MESSAGE);
+						Logger.logError("Çeviri hatası: " + ex.getMessage());
                     }
 
 				}
@@ -253,6 +271,7 @@ public class DemoApplication {
 		historyButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Logger.log("Tarif geçmişi penceresi açıldı");
 				HistoryPanel historyPanel = new HistoryPanel();
 				historyPanel.setVisible(true);
 			}
@@ -272,9 +291,10 @@ public class DemoApplication {
 			meals.add(mealDetail); // Yeni yemeği ekle
 			response.setMeals(meals); // Güncellenmiş veriyi dosyaya yaz
 			objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, response);
+			Logger.log("Meal Details kaydedildi/güncellendi: " + mealDetail.getStrMeal());
 			System.out.println("Meal Detail kaydedildi/güncellendi: " + mealDetail.getStrMeal());
 		} catch (IOException e) {
-			// deneme
+			Logger.logError("JSON dosyasına yazılırken hata: " + e.getMessage());
 			System.out.println("JSON dosyasına yazılırken bir hata oluştu: " + e.getMessage());
 			e.printStackTrace();
 		}
