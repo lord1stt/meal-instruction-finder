@@ -72,16 +72,16 @@ public class HistoryPanel extends JFrame {
         JButton getPdfButton = new JButton("Favorileri PDF'e Dönüştür.");
         getPdfButton.addActionListener(e -> convertToPdf());
 
-        JTextField emailTextField = new JTextField(30);
+//        JTextField emailTextField = new JTextField(30);
 
 
-        JButton scheduleEmailButton = new JButton("E-posta gönder");
+        JButton scheduleEmailButton = new JButton("Favorileri E-posta gönder(Gmail)");
         scheduleEmailButton.addActionListener(e -> scheduleEmail());
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(refreshButton);
         buttonPanel.add(getPdfButton);
-        buttonPanel.add(emailTextField);
+//        buttonPanel.add(emailTextField);
         buttonPanel.add(scheduleEmailButton);
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
@@ -149,12 +149,24 @@ public class HistoryPanel extends JFrame {
     }
     private void scheduleEmail(){
 //        String to = "yazikkafana5252@gmail.com";  // Alıcının e-posta adresi
+        String to;
+        boolean gmailAuth = false;
+        do {
+            to =  JOptionPane.showInputDialog(null,
+                    "Gmail adresinizi girin: ",
+                    "Bilgi",
+                    JOptionPane.INFORMATION_MESSAGE);
+            if(!to.contains("@gmail") || !to.contains(".com")){
+                JOptionPane.showMessageDialog(null,
+                        "Lütfen geçerli bir email adresi girin: ",
+                        "Hata",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                gmailAuth = true;
+            }
+        }while(!gmailAuth);
 
-
-        String to =  JOptionPane.showInputDialog(null,
-                "Email adresinizi girin: ",
-                "Bilgi",
-                JOptionPane.INFORMATION_MESSAGE);
         String from = "furkantoparlak060@gmail.com";      // Senin Gmail adresin
 
         final String username = "furkantoparlak060@gmail.com";  // Gmail kullanıcı adın
