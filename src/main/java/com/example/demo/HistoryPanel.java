@@ -76,7 +76,7 @@ public class HistoryPanel extends JFrame {
 
 
         JButton scheduleEmailButton = new JButton("E-posta gönder");
-        scheduleEmailButton.addActionListener(e -> scheduleEmail(emailTextField.getText().trim()));
+        scheduleEmailButton.addActionListener(e -> scheduleEmail());
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(refreshButton);
@@ -147,16 +147,14 @@ public class HistoryPanel extends JFrame {
         }
 
     }
-    private void scheduleEmail(String _emailTextField){
+    private void scheduleEmail(){
 //        String to = "yazikkafana5252@gmail.com";  // Alıcının e-posta adresi
-        if(_emailTextField == null || _emailTextField == ""){
-            JOptionPane.showMessageDialog(null,
-                    "Hata. Lütfen email alanını doldurun.",
-                    "Hata",
-                    );
-            return;
-        }
-        String to = _emailTextField;
+
+
+        String to =  JOptionPane.showInputDialog(null,
+                "Email adresinizi girin: ",
+                "Bilgi",
+                JOptionPane.INFORMATION_MESSAGE);
         String from = "furkantoparlak060@gmail.com";      // Senin Gmail adresin
 
         final String username = "furkantoparlak060@gmail.com";  // Gmail kullanıcı adın
