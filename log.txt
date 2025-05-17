@@ -349,3 +349,109 @@
 [2025-05-17 19:49:37] E-posta gönderimi için adres girildi: yazikkafana5252@gmail.com
 [2025-05-17 19:49:38] PDF oluşturuldu: favori_tarifler.pdf
 [2025-05-17 19:49:40] E-posta gönderildi: yazikkafana5252@gmail.com
+[2025-05-17 19:55:13] Kategoriler API'den alındı
+[2025-05-17 19:55:14] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:55:14] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:52] Favorilere eklendi: Turkey Meatloaf
+[2025-05-17 19:55:55] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:55] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:55] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:55:57] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:59:00] Kategoriler API'den alındı
+[2025-05-17 19:59:01] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:59:01] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:59:38] Kategori seçildi: Pork
+[2025-05-17 19:59:38] Pork kategorisi için 19 yemek getirildi
+[2025-05-17 19:59:40] Yemek seçildi: Hot and Sour Soup
+[2025-05-17 19:59:41] Tarif getirildi: Hot and Sour Soup
+[2025-05-17 19:59:41] Meal Details kaydedildi/güncellendi: Hot and Sour Soup
+[2025-05-17 19:59:43] Yemek seçildi: Crispy Sausages and Greens
+[2025-05-17 19:59:44] Tarif getirildi: Crispy Sausages and Greens
+[2025-05-17 19:59:44] Meal Details kaydedildi/güncellendi: Crispy Sausages and Greens
+[2025-05-17 19:59:48] Yemek seçildi: Stamppot
+[2025-05-17 19:59:48] Tarif getirildi: Stamppot
+[2025-05-17 19:59:48] Meal Details kaydedildi/güncellendi: Stamppot
+[2025-05-17 20:00:01] Yemek seçildi: Vietnamese Grilled Pork (bun-thit-nuong)
+[2025-05-17 20:00:06] Yemek seçildi: Vietnamese Grilled Pork (bun-thit-nuong)
+[2025-05-17 20:02:52] Kategoriler API'den alındı
+[2025-05-17 20:02:55] Kategori seçildi: Beef
+[2025-05-17 20:02:55] Beef kategorisi için 46 yemek getirildi
+[2025-05-17 20:02:57] Yemek seçildi: Beef and Mustard Pie
+[2025-05-17 20:02:57] Tarif getirildi: Beef and Mustard Pie
+[2025-05-17 20:02:57] Meal Details kaydedildi/güncellendi: Beef and Mustard Pie
+[2025-05-17 20:03:50] Kategoriler API'den alındı
+[2025-05-17 20:04:43] Kategoriler API'den alındı
+[2025-05-17 20:04:46] Kategori seçildi: Beef
+[2025-05-17 20:04:46] Beef kategorisi için 46 yemek getirildi
+[2025-05-17 20:04:47] Yemek seçildi: Beef and Mustard Pie
+[2025-05-17 20:04:48] Tarif getirildi: Beef and Mustard Pie
+[2025-05-17 20:04:48] Meal Details kaydedildi/güncellendi: Beef and Mustard Pie
+[2025-05-17 20:04:57] Kategoriler API'den alındı
+[2025-05-17 20:04:58] Kategori seçildi: Beef
+[2025-05-17 20:04:58] Beef kategorisi için 46 yemek getirildi
+[2025-05-17 20:04:59] Yemek seçildi: Beef and Mustard Pie
+[2025-05-17 20:05:00] Tarif getirildi: Beef and Mustard Pie
+[2025-05-17 20:05:00] Meal Details kaydedildi/güncellendi: Beef and Mustard Pie
+[2025-05-17 20:05:04] Yemek seçildi: Beef Caldereta
+[2025-05-17 20:05:05] Tarif getirildi: Beef Caldereta
+[2025-05-17 20:05:05] Meal Details kaydedildi/güncellendi: Beef Caldereta
+[2025-05-17 20:05:07] Yemek seçildi: Cevapi Sausages
+[2025-05-17 20:05:08] Tarif getirildi: Cevapi Sausages
+[2025-05-17 20:05:08] Meal Details kaydedildi/güncellendi: Cevapi Sausages
+[2025-05-17 20:05:13] Tarif çevirildi: Cevapi Sausages (en -> tr)
+[2025-05-17 20:05:33] Yemek seçildi: Croatian lamb peka
+[2025-05-17 20:05:35] Tarif getirildi: Croatian lamb peka
+[2025-05-17 20:05:35] Meal Details kaydedildi/güncellendi: Croatian lamb peka
+[2025-05-17 20:06:04] Yemek seçildi: Jamaican Beef Patties
+[2025-05-17 20:06:05] Tarif getirildi: Jamaican Beef Patties
+[2025-05-17 20:06:05] Meal Details kaydedildi/güncellendi: Jamaican Beef Patties
+[2025-05-17 20:08:16] Kategoriler API'den alındı
+[2025-05-17 20:08:18] Kategori seçildi: Beef
+[2025-05-17 20:08:18] Beef kategorisi için 46 yemek getirildi
+[2025-05-17 20:08:19] Yemek seçildi: Beef and Mustard Pie
+[2025-05-17 20:08:20] Tarif getirildi: Beef and Mustard Pie
+[2025-05-17 20:08:20] Meal Details kaydedildi/güncellendi: Beef and Mustard Pie
+[2025-05-17 20:08:24] Yemek seçildi: Beef Mechado
+[2025-05-17 20:08:24] Tarif getirildi: Beef Mechado
+[2025-05-17 20:08:24] Meal Details kaydedildi/güncellendi: Beef Mechado
+[2025-05-17 20:08:27] Yemek seçildi: Croatian Bean Stew
+[2025-05-17 20:08:27] Tarif getirildi: Croatian Bean Stew
+[2025-05-17 20:08:27] Meal Details kaydedildi/güncellendi: Croatian Bean Stew
+[2025-05-17 20:08:30] Yemek seçildi: Minced Beef Pie
+[2025-05-17 20:08:31] Tarif getirildi: Minced Beef Pie
+[2025-05-17 20:08:31] Meal Details kaydedildi/güncellendi: Minced Beef Pie
+[2025-05-17 20:08:36] Yemek seçildi: Moussaka
+[2025-05-17 20:08:38] Tarif getirildi: Moussaka
+[2025-05-17 20:08:38] Meal Details kaydedildi/güncellendi: Moussaka
+[2025-05-17 20:08:42] Yemek seçildi: Szechuan Beef
+[2025-05-17 20:08:42] Tarif getirildi: Szechuan Beef
+[2025-05-17 20:08:42] Meal Details kaydedildi/güncellendi: Szechuan Beef
+[2025-05-17 20:08:51] Yemek seçildi: Traditional Croatian Goulash
+[2025-05-17 20:08:51] Tarif getirildi: Traditional Croatian Goulash
+[2025-05-17 20:08:51] Meal Details kaydedildi/güncellendi: Traditional Croatian Goulash
+[2025-05-17 20:08:54] Kategori seçildi: Miscellaneous
+[2025-05-17 20:08:54] Miscellaneous kategorisi için 12 yemek getirildi
+[2025-05-17 20:08:58] Yemek seçildi: Chakchouka 
+[2025-05-17 20:08:59] Tarif getirildi: Chakchouka 
+[2025-05-17 20:08:59] Meal Details kaydedildi/güncellendi: Chakchouka 
+[2025-05-17 20:09:00] Yemek seçildi: Callaloo Jamaican Style
+[2025-05-17 20:09:01] Tarif getirildi: Callaloo Jamaican Style
+[2025-05-17 20:09:01] Meal Details kaydedildi/güncellendi: Callaloo Jamaican Style
+[2025-05-17 20:09:04] Yemek seçildi: Bean & Sausage Hotpot
+[2025-05-17 20:09:09] Yemek seçildi: Osso Buco alla Milanese
+[2025-05-17 20:09:10] Tarif getirildi: Osso Buco alla Milanese
+[2025-05-17 20:09:10] Meal Details kaydedildi/güncellendi: Osso Buco alla Milanese
+[2025-05-17 20:09:44] Tarif çevirildi: Osso Buco alla Milanese (en -> tr)
+[2025-05-17 20:10:48] Kategoriler API'den alındı
+[2025-05-17 20:10:54] Kategori seçildi: Miscellaneous
+[2025-05-17 20:10:55] Miscellaneous kategorisi için 12 yemek getirildi
+[2025-05-17 20:10:58] Yemek seçildi: Osso Buco alla Milanese
+[2025-05-17 20:10:59] Tarif getirildi: Osso Buco alla Milanese
+[2025-05-17 20:10:59] Meal Details kaydedildi/güncellendi: Osso Buco alla Milanese

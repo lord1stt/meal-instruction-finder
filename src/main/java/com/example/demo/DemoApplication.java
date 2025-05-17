@@ -91,11 +91,12 @@ public class DemoApplication {
 		// JTEXTPANE & JSCROLLPANE
 		JTextPane tarifTextPane = new JTextPane();
 		tarifTextPane.setEditable(false); // Only for displaying
-		tarifTextPane.setPreferredSize(new Dimension(750,350)); // Boyutu ayarladık
+
 		tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
 		tarifTextPane.setBackground(Color.lightGray);
 		JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
-
+		tarifScrollPane.setPreferredSize(new Dimension(750, 350));
+		tarifScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
 		//COMBOBOXES
 		JComboBox<String> cBoxMeals = new JComboBox<>();
@@ -223,16 +224,23 @@ public class DemoApplication {
 					String mealDetailUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s="
 							+ URLEncoder.encode(mealName, StandardCharsets.UTF_8);
 					System.out.println("Meal detail Url: " +mealDetailUrl);
+					try{
+						MealDetailResponse mealDetailResponse =
+								restTemplate.getForObject(mealDetailUrl, MealDetailResponse.class);
+						MealDetailResponse.MealDetail mealDetail = mealDetailResponse.getMeals().get(0);
+						mealInstruction[0] = mealDetail.getStrInstructions();
+						currentMeal[0] = mealDetail.getStrMeal();
+						tarifTextPane.setText(currentMeal[0]  +
+								" Tarifi:\n" + mealInstruction[0]);
+						Logger.logRecipeRetrieved(currentMeal[0]);
+						saveMealDetail(mealDetail); // Seçilen yemek JSON'a yazılıyor
+					}
+					catch (Exception ex){
+						JOptionPane.showMessageDialog(null,
+								"Hata: " + ex.getMessage(),
+								"Hata",JOptionPane.ERROR_MESSAGE);
+					}
 
-					MealDetailResponse mealDetailResponse =
-							restTemplate.getForObject(mealDetailUrl, MealDetailResponse.class);
-					MealDetailResponse.MealDetail mealDetail = mealDetailResponse.getMeals().get(0);
-					mealInstruction[0] = mealDetail.getStrInstructions();
-					currentMeal[0] = mealDetail.getStrMeal();
-					tarifTextPane.setText(currentMeal[0]  +
-							" Tarifi:\n" + mealInstruction[0]);
-					Logger.logRecipeRetrieved(currentMeal[0]);
-					saveMealDetail(mealDetail); // Seçilen yemek JSON'a yazılıyor
 				}
 			}
 		});

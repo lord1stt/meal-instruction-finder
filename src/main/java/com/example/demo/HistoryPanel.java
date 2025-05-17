@@ -64,7 +64,7 @@ public class HistoryPanel extends JFrame {
         // JTEXTPANE & JSCROLLPANE
         JTextPane tarifTextPane = new JTextPane();
         tarifTextPane.setEditable(false); // Only for displaying
-        tarifTextPane.setPreferredSize(new Dimension(750,350)); // Boyutu ayarladık
+        tarifTextPane.setPreferredSize(new Dimension(900,380)); // Boyutu ayarladık
         tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
         tarifTextPane.setBackground(Color.lightGray);
         JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
