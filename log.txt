@@ -610,3 +610,35 @@
 [2025-05-18 00:15:20] Tarif geçmişi başarıyla yüklendi
 [2025-05-18 00:15:27] Tarif geçmişi başarıyla yüklendi
 [2025-05-18 00:15:27] Tarif silindi: Jamaican Beef Patties
+[2025-05-18 00:16:47] Kategoriler API'den alındı
+[2025-05-18 00:16:47] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:16:47] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:16:49] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:16:49] Tarif silindi: Croatian lamb peka
+[2025-05-18 00:21:12] Kategoriler API'den alındı
+[2025-05-18 00:21:12] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:21:13] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:22:08] Kategoriler API'den alındı
+[2025-05-18 00:22:11] Kategori seçildi: Miscellaneous
+[2025-05-18 00:22:11] Miscellaneous kategorisi için 12 yemek getirildi
+[2025-05-18 00:22:13] Yemek seçildi: French Omelette
+[2025-05-18 00:22:14] Tarif getirildi: French Omelette
+[2025-05-18 00:22:14] Meal Details kaydedildi/güncellendi: French Omelette
+[2025-05-18 00:22:16] Tarif çevirildi: French Omelette (en -> tr)
+[2025-05-18 00:22:17] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:22:17] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:22:19] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:22:19] Tarif silindi: French Omelette
+[2025-05-18 00:24:17] Kategoriler API'den alındı
+[2025-05-18 00:24:18] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:24:18] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:25:23] Kategoriler API'den alındı
+[2025-05-18 00:25:23] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:25:23] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:25:35] Favorilere eklendi: Beef Caldereta
+[2025-05-18 00:25:37] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:25:39] Favorilerden çıkarıldı: Beef Caldereta
+[2025-05-18 00:25:40] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:34:21] Kategoriler API'den alındı
+[2025-05-18 00:34:22] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:34:22] Tarif geçmişi başarıyla yüklendi

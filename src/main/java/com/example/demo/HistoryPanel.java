@@ -30,11 +30,11 @@ public class HistoryPanel extends JFrame {
         setLocationRelativeTo(null);
 
         // Tablo modeli oluştur
-        String[] columnNames = {"Yemek Adı", "Tarif", "Favorilerde", "Fav Eklenme Tarihi", "İşlemler", "Sil"};
+        String[] columnNames = {"Yemek Adı", "Tarif", "Favorilerde", "Fav Eklenme Tarihi", "İşlemler"};
         tableModel = new DefaultTableModel(columnNames, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == 4 || column == 5; // Sadece işlemler ve sil sütunları düzenlenebilir
+                return column == 4;
             }
         };
 
@@ -44,7 +44,7 @@ public class HistoryPanel extends JFrame {
         historyTable.getColumnModel().getColumn(2).setPreferredWidth(40);
         historyTable.getColumnModel().getColumn(3).setPreferredWidth(80);
         historyTable.getColumnModel().getColumn(4).setPreferredWidth(70);
-        historyTable.getColumnModel().getColumn(5).setPreferredWidth(40);
+
 
         // Tarif sütununu düzgün göstermek için cell renderer
         historyTable.getColumnModel().getColumn(1).
@@ -76,9 +76,7 @@ public class HistoryPanel extends JFrame {
         historyTable.getColumnModel().getColumn(4).setCellEditor(new ButtonEditor(new JCheckBox(), "favorite"));
 
 
-        // Sil sütunu için buton renderer ve editor
-        historyTable.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
-        historyTable.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox(), "delete"));
+
         // Mevcut ListSelectionListener'ı şu şekilde değiştirin:
         historyTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
@@ -197,37 +195,6 @@ public class HistoryPanel extends JFrame {
 
     private void loadMealHistory(int i){
         // Bu metot kullanılmıyor, gerekirse implement edilebilir
-    }
-
-    // Meal silme metodu
-    private void deleteMeal(int rowIndex) {
-        try {
-            MealDetailResponse response = LoadFromJSON.load();
-            List<MealDetailResponse.MealDetail> meals = response.getMeals();
-
-            if (rowIndex >= 0 && rowIndex < meals.size()) {
-                String mealName = meals.get(rowIndex).getStrMeal();
-                meals.remove(rowIndex);
-                response.setMeals(meals);
-                SavetoJSON.save(response, "meals.json");
-
-                // Seçimi temizle (önemli!)
-                historyTable.clearSelection();
-
-                // Tablo yeniden yükle
-                loadMealHistory();
-                Logger.log("Tarif silindi: " + mealName);
-
-                JOptionPane.showMessageDialog(this,
-                        mealName + " tarifi geçmişten silindi.",
-                        "Bilgi", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this,
-                    "Tarif silinirken hata oluştu: " + ex.getMessage(),
-                    "Hata", JOptionPane.ERROR_MESSAGE);
-            Logger.logError("Tarif silinirken hata: " + ex.getMessage());
-        }
     }
 
     private void convertToPdf(){
@@ -402,17 +369,7 @@ public class HistoryPanel extends JFrame {
         public Object getCellEditorValue() {
             if (isPushed) {
                 try {
-                    if (buttonType.equals("delete")) {
-                        // Silme işlemi gerçekleştir
-                        int option = JOptionPane.showConfirmDialog(button,
-                                "Bu tarifi geçmişten silmek istediğinize emin misiniz?",
-                                "Tarif Silme Onayı",
-                                JOptionPane.YES_NO_OPTION);
-
-                        if (option == JOptionPane.YES_OPTION) {
-                            deleteMeal(currentRow);
-                        }
-                    } else if (buttonType.equals("favorite")) {
+                    if (buttonType.equals("favorite")) {
                         // Favori durumu değiştir
                         // Mevcut yemek detaylarını al
                         MealDetailResponse response = LoadFromJSON.load();
