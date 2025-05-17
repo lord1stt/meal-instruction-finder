@@ -575,3 +575,38 @@
 [2025-05-18 00:01:50] Tarif geçmişi başarıyla yüklendi
 [2025-05-18 00:01:55] Tarif geçmişi başarıyla yüklendi
 [2025-05-18 00:01:55] Tarif silindi: Szechuan Beef
+[2025-05-18 00:04:14] Kategoriler API'den alındı
+[2025-05-18 00:04:15] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:04:15] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:04:20] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:04:20] Tarif silindi: Moussaka
+[2025-05-18 00:04:27] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:04:33] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:04:35] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:04:35] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:06:01] Kategoriler API'den alındı
+[2025-05-18 00:06:02] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:06:02] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:06:05] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:06:05] Tarif silindi: Ham hock colcannon
+[2025-05-18 00:06:14] Favorilere eklendi: Croatian Bean Stew
+[2025-05-18 00:06:17] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:06:17] Tarif silindi: Minced Beef Pie
+[2025-05-18 00:13:00] Kategoriler API'den alındı
+[2025-05-18 00:13:01] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:13:07] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:13:46] Kategoriler API'den alındı
+[2025-05-18 00:13:46] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:13:46] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:13:50] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:13:50] Tarif silindi: Croatian Bean Stew
+[2025-05-18 00:15:06] Kategoriler API'den alındı
+[2025-05-18 00:15:06] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:15:06] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:15:09] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:15:09] Tarif silindi: Beef Mechado
+[2025-05-18 00:15:19] Kategoriler API'den alındı
+[2025-05-18 00:15:20] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:15:20] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:15:27] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:15:27] Tarif silindi: Jamaican Beef Patties

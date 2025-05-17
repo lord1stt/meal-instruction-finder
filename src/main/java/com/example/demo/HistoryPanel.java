@@ -170,12 +170,20 @@ public class HistoryPanel extends JFrame {
                 });
             }
 
-            // Eğer önceki seçim geçerliyse geri yükle
-            if (currentSelection >= 0 && currentSelection < tableModel.getRowCount()) {
-                historyTable.setRowSelectionInterval(currentSelection, currentSelection);
-            } else if (tableModel.getRowCount() > 0) {
-                // Son satır silinmişse, yeni son satırı seç
-                historyTable.setRowSelectionInterval(tableModel.getRowCount() - 1, tableModel.getRowCount() - 1);
+            // Eğer satır mevcutsa seçim yapmaya çalış
+            if (tableModel.getRowCount() > 0) {
+                // Önceki seçim geçerliyse, onu geri yükle
+                if (currentSelection >= 0 && currentSelection < tableModel.getRowCount()) {
+                    historyTable.setRowSelectionInterval(currentSelection, currentSelection);
+                } else {
+                    // Son satır silinmişse veya geçersiz bir seçim varsa, yeni son satırı seç
+                    int lastRow = tableModel.getRowCount() - 1;
+                    historyTable.setRowSelectionInterval(lastRow, lastRow);
+                }
+            } else {
+                // Hiç satır kalmadığında seçim yapmaya çalışma
+                // Bu durumda tarifTextPane'i temizle
+                // Bu satırı ListSelectionListener'a bırakabilirsiniz, o zaten kontrol ediyor
             }
 
             Logger.log("Tarif geçmişi başarıyla yüklendi");
@@ -186,9 +194,11 @@ public class HistoryPanel extends JFrame {
             Logger.logError("Tarif geçmişi yüklenirken hata: " + e.getMessage());
         }
     }
-    private void loadMealHistory(int i){
 
+    private void loadMealHistory(int i){
+        // Bu metot kullanılmıyor, gerekirse implement edilebilir
     }
+
     // Meal silme metodu
     private void deleteMeal(int rowIndex) {
         try {
@@ -219,6 +229,7 @@ public class HistoryPanel extends JFrame {
             Logger.logError("Tarif silinirken hata: " + ex.getMessage());
         }
     }
+
     private void convertToPdf(){
         try {
             List<MealDetailResponse.MealDetail> favorites = GetFavorites.getFavorites();
@@ -407,8 +418,7 @@ public class HistoryPanel extends JFrame {
                         MealDetailResponse response = LoadFromJSON.load();
                         List<MealDetailResponse.MealDetail> meals = response.getMeals();
 
-                        if (currentRow != -1) {
-
+                        if (currentRow != -1 && currentRow < meals.size()) {
                             MealDetailResponse.MealDetail selectedMeal = meals.get(currentRow);
 
                             // Favori durumunu tersine çevir
@@ -449,6 +459,11 @@ public class HistoryPanel extends JFrame {
         public boolean stopCellEditing() {
             isPushed = false;
             return super.stopCellEditing();
+        }
+        @Override
+        public void cancelCellEditing() {
+            super.cancelCellEditing();
+            isPushed = false;
         }
     }
 }
