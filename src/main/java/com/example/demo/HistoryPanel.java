@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import jdk.jfr.Experimental;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
@@ -21,7 +23,7 @@ public class HistoryPanel extends JFrame {
 
     private JTable historyTable;
     private DefaultTableModel tableModel;
-
+    private int selectedRow;
     public HistoryPanel() {
         setTitle("Tarif Geçmişi");
         setSize(1200, 650);
@@ -77,18 +79,33 @@ public class HistoryPanel extends JFrame {
         // Sil sütunu için buton renderer ve editor
         historyTable.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
         historyTable.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox(), "delete"));
+        // Mevcut ListSelectionListener'ı şu şekilde değiştirin:
         historyTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
-                // do some actions here, for example
-                // print first column value from selected row
-                String selectedMealName = historyTable.getValueAt(historyTable.getSelectedRow(), 0).toString();
-                String selectedInstruction = historyTable.getValueAt(historyTable.getSelectedRow(), 1).toString();
-                tarifTextPane.setText("Seçilen Yemek: " + selectedMealName
-                + "\nTarifi: " + selectedInstruction);
+                // Sadece selection işlemi bittiğinde çalışsın
+                if (event.getValueIsAdjusting()) {
+                    return;
+                }
+
+                try{
+                    int selectedRow = historyTable.getSelectedRow();
+
+                    // Geçerli bir satır seçili mi kontrol et
+                    if (selectedRow >= 0 && selectedRow < historyTable.getRowCount()) {
+                        String selectedMealName = historyTable.getValueAt(selectedRow, 0).toString();
+                        String selectedInstruction = historyTable.getValueAt(selectedRow, 1).toString();
+                        tarifTextPane.setText("Seçilen Yemek: " + selectedMealName
+                                + "\nTarifi: " + selectedInstruction);
+                    } else {
+                        // Geçersiz seçim durumunda metin alanını temizle
+                        tarifTextPane.setText("Bir yemek seçin...");
+                    }
+                } catch (Exception ex){
+                    System.out.println("Selection error: " + ex.getMessage());
+                    tarifTextPane.setText("Bir yemek seçin...");
+                }
             }
         });
-
-//        historyTable.setPreferredSize(new Dimension(800, 200));
 
 
         JScrollPane scrollPane = new JScrollPane(historyTable);
@@ -130,6 +147,9 @@ public class HistoryPanel extends JFrame {
     }
 
     private void loadMealHistory() {
+        // Mevcut seçimi koru
+        int currentSelection = historyTable.getSelectedRow();
+
         tableModel.setRowCount(0); // Tabloyu temizle
 
         try {
@@ -150,7 +170,14 @@ public class HistoryPanel extends JFrame {
                 });
             }
 
-//            historyTable.repaint();
+            // Eğer önceki seçim geçerliyse geri yükle
+            if (currentSelection >= 0 && currentSelection < tableModel.getRowCount()) {
+                historyTable.setRowSelectionInterval(currentSelection, currentSelection);
+            } else if (tableModel.getRowCount() > 0) {
+                // Son satır silinmişse, yeni son satırı seç
+                historyTable.setRowSelectionInterval(tableModel.getRowCount() - 1, tableModel.getRowCount() - 1);
+            }
+
             Logger.log("Tarif geçmişi başarıyla yüklendi");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this,
@@ -173,6 +200,11 @@ public class HistoryPanel extends JFrame {
                 meals.remove(rowIndex);
                 response.setMeals(meals);
                 SavetoJSON.save(response, "meals.json");
+
+                // Seçimi temizle (önemli!)
+                historyTable.clearSelection();
+
+                // Tablo yeniden yükle
                 loadMealHistory();
                 Logger.log("Tarif silindi: " + mealName);
 
@@ -187,7 +219,6 @@ public class HistoryPanel extends JFrame {
             Logger.logError("Tarif silinirken hata: " + ex.getMessage());
         }
     }
-
     private void convertToPdf(){
         try {
             List<MealDetailResponse.MealDetail> favorites = GetFavorites.getFavorites();

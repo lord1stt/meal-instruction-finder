@@ -521,3 +521,57 @@
 [2025-05-17 23:36:53] Tarif geçmişi başarıyla yüklendi
 [2025-05-17 23:38:43] Tarif geçmişi penceresi açıldı
 [2025-05-17 23:38:43] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:40:36] Kategoriler API'den alındı
+[2025-05-17 23:40:37] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:40:37] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:41:12] Kategoriler API'den alındı
+[2025-05-17 23:41:13] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:41:13] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:42:48] Kategoriler API'den alındı
+[2025-05-17 23:42:49] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:42:49] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:44:04] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:44:04] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:47:18] Kategoriler API'den alındı
+[2025-05-17 23:47:19] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:47:19] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:52:40] Kategoriler API'den alındı
+[2025-05-17 23:52:40] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:52:40] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:55:06] Kategoriler API'den alındı
+[2025-05-17 23:55:06] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:55:06] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:55:09] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:55:09] Tarif silindi: Stamppot
+[2025-05-17 23:55:16] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:55:16] Tarif silindi: Lamb Biryani
+[2025-05-17 23:56:01] Kategoriler API'den alındı
+[2025-05-17 23:56:02] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:56:02] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:08] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:08] Tarif silindi: Crispy Sausages and Greens
+[2025-05-17 23:56:23] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:23] Tarif silindi: Osso Buco alla Milanese
+[2025-05-17 23:56:41] Kategoriler API'den alındı
+[2025-05-17 23:56:42] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:56:42] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:44] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:44] Tarif silindi: Beef Asado
+[2025-05-17 23:56:46] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:46] Tarif silindi: Crock Pot Chicken Baked Tacos
+[2025-05-17 23:56:48] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:48] Tarif silindi: Turkey Meatloaf
+[2025-05-17 23:56:52] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:52] Tarif silindi: Chakchouka 
+[2025-05-17 23:56:54] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:56:54] Tarif silindi: Callaloo Jamaican Style
+[2025-05-17 23:57:28] Kategoriler API'den alındı
+[2025-05-17 23:57:28] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:57:28] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:57:32] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:57:32] Tarif silindi: Traditional Croatian Goulash
+[2025-05-18 00:01:50] Kategoriler API'den alındı
+[2025-05-18 00:01:50] Tarif geçmişi penceresi açıldı
+[2025-05-18 00:01:50] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:01:55] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 00:01:55] Tarif silindi: Szechuan Beef
