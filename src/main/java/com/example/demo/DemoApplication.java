@@ -96,6 +96,7 @@ public class DemoApplication {
 		tarifTextPane.setBackground(Color.lightGray);
 		JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
 
+
 		//COMBOBOXES
 		JComboBox<String> cBoxMeals = new JComboBox<>();
 		cBoxMeals.setMaximumSize(new Dimension(100,400));

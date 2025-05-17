@@ -28,3 +28,120 @@
 [2025-05-17 12:59:45] Tarif geçmişi başarıyla yüklendi
 [2025-05-17 12:59:52] Tarif geçmişi başarıyla yüklendi
 [2025-05-17 12:59:52] Tarif silindi: Kidney Bean Curry
+[2025-05-17 14:16:07] Kategoriler API'den alındı
+[2025-05-17 14:16:10] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:16:10] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:16:17] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:16:17] Tarif silindi: Vegetarian Chilli
+[2025-05-17 14:16:25] Kategori seçildi: Chicken
+[2025-05-17 14:16:26] Chicken kategorisi için 36 yemek getirildi
+[2025-05-17 14:16:29] Yemek seçildi: 15-minute chicken & halloumi burgers
+[2025-05-17 14:16:41] Yemek seçildi: Ayam Percik
+[2025-05-17 14:16:41] Tarif getirildi: Ayam Percik
+[2025-05-17 14:16:41] Meal Details kaydedildi/güncellendi: Ayam Percik
+[2025-05-17 14:16:53] Tarif çevirildi: Ayam Percik (en -> tr)
+[2025-05-17 14:17:06] Favorilere eklendi: Ayam Percik
+[2025-05-17 14:17:08] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:17:08] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:21:40] Kategoriler API'den alındı
+[2025-05-17 14:21:41] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:21:41] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:22:01] Kategoriler API'den alındı
+[2025-05-17 14:22:02] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:22:02] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:22:28] Kategoriler API'den alındı
+[2025-05-17 14:22:30] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:22:30] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:22:49] Kategoriler API'den alındı
+[2025-05-17 14:22:52] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:22:52] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:23:55] Kategoriler API'den alındı
+[2025-05-17 14:23:55] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:23:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:27:52] Kategoriler API'den alındı
+[2025-05-17 14:27:53] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:27:53] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:28:12] Kategoriler API'den alındı
+[2025-05-17 14:28:12] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:28:12] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:29:18] Kategoriler API'den alındı
+[2025-05-17 14:29:19] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:29:19] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:29:45] Kategoriler API'den alındı
+[2025-05-17 14:29:46] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:29:46] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:30:46] Kategoriler API'den alındı
+[2025-05-17 14:30:47] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:30:47] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:32:55] Kategoriler API'den alındı
+[2025-05-17 14:32:59] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:32:59] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:33:42] Kategoriler API'den alındı
+[2025-05-17 14:33:42] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:33:42] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:35:58] Kategoriler API'den alındı
+[2025-05-17 14:36:03] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:36:03] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:36:22] Kategoriler API'den alındı
+[2025-05-17 14:36:23] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:36:23] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:36:34] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:36:34] Tarif silindi: Ayam Percik
+[2025-05-17 14:41:56] Kategoriler API'den alındı
+[2025-05-17 14:41:57] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:41:57] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:43:46] Kategoriler API'den alındı
+[2025-05-17 14:43:46] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:43:46] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:45:43] Kategoriler API'den alındı
+[2025-05-17 14:45:44] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:45:44] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:46:09] Kategoriler API'den alındı
+[2025-05-17 14:46:09] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:46:09] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:49:24] Kategoriler API'den alındı
+[2025-05-17 14:49:31] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:49:31] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:50:53] Kategoriler API'den alındı
+[2025-05-17 14:50:55] HATA: Favorilere eklemek için yemek seçilmedi
+[2025-05-17 14:50:56] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:50:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:51:41] Kategoriler API'den alındı
+[2025-05-17 14:51:42] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:51:42] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:52:34] Kategoriler API'den alındı
+[2025-05-17 14:52:34] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:52:34] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:53:06] Kategoriler API'den alındı
+[2025-05-17 14:53:06] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:53:06] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:53:43] Kategoriler API'den alındı
+[2025-05-17 14:53:43] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:53:43] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:53:56] Kategoriler API'den alındı
+[2025-05-17 14:53:56] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:53:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:54:17] Kategoriler API'den alındı
+[2025-05-17 14:54:18] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:54:18] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 14:54:39] Kategoriler API'den alındı
+[2025-05-17 14:54:39] Tarif geçmişi penceresi açıldı
+[2025-05-17 14:54:39] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 15:02:35] Kategoriler API'den alındı
+[2025-05-17 15:02:36] Tarif geçmişi penceresi açıldı
+[2025-05-17 15:02:36] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 15:03:20] Kategoriler API'den alındı
+[2025-05-17 15:03:21] Tarif geçmişi penceresi açıldı
+[2025-05-17 15:03:21] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 15:05:18] Kategoriler API'den alındı
+[2025-05-17 15:05:18] Tarif geçmişi penceresi açıldı
+[2025-05-17 15:05:18] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 15:05:36] Kategoriler API'den alındı
+[2025-05-17 15:05:37] Tarif geçmişi penceresi açıldı
+[2025-05-17 15:05:37] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 15:06:57] Kategoriler API'den alındı
+[2025-05-17 15:06:57] Tarif geçmişi penceresi açıldı
+[2025-05-17 15:06:57] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 15:08:39] Kategoriler API'den alındı
+[2025-05-17 15:08:39] Tarif geçmişi penceresi açıldı
+[2025-05-17 15:08:39] Tarif geçmişi başarıyla yüklendi

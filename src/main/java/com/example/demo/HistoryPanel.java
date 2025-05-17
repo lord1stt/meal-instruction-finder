@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -67,8 +68,18 @@ public class HistoryPanel extends JFrame {
         historyTable.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
         historyTable.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox(), "delete"));
 
+
+//        historyTable.setPreferredSize(new Dimension(800, 200));
+
+
         JScrollPane scrollPane = new JScrollPane(historyTable);
-        getContentPane().add(scrollPane, BorderLayout.CENTER);
+        // ScrollPane için minimum/preferred boyut ayarla
+        scrollPane.setPreferredSize(new Dimension(950, 250));
+
+        // Ana panel oluştur
+        JPanel mainPanel = new JPanel(new BorderLayout());
+
+
 
         JButton refreshButton = new JButton("Yenile");
         refreshButton.addActionListener(e -> loadMealHistory());
@@ -84,7 +95,23 @@ public class HistoryPanel extends JFrame {
         buttonPanel.add(getPdfButton);
         buttonPanel.add(scheduleEmailButton);
 
-        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+        JPanel mealDetailsPanel = new JPanel();
+
+        // JTEXTPANE & JSCROLLPANE
+        JTextPane tarifTextPane = new JTextPane();
+        tarifTextPane.setEditable(false); // Only for displaying
+        tarifTextPane.setPreferredSize(new Dimension(750,350)); // Boyutu ayarladık
+        tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
+        tarifTextPane.setBackground(Color.lightGray);
+        JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
+
+        mainPanel.add(scrollPane,BorderLayout.CENTER);
+        mealDetailsPanel.add(tarifScrollPane,BorderLayout.CENTER);
+
+        // Frame'e ana paneli ekle
+        getContentPane().add(mainPanel,BorderLayout.NORTH);
+        getContentPane().add(mealDetailsPanel,BorderLayout.CENTER);
+        getContentPane().add(buttonPanel,BorderLayout.SOUTH);
 
         loadMealHistory();
     }
@@ -110,7 +137,7 @@ public class HistoryPanel extends JFrame {
                 });
             }
 
-            historyTable.repaint();
+//            historyTable.repaint();
             Logger.log("Tarif geçmişi başarıyla yüklendi");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this,
