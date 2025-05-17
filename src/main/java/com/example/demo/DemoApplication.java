@@ -44,7 +44,7 @@ public class DemoApplication {
 
 		//FRAME SETTINGS
 		JFrame frame = new JFrame();
-		frame.setSize(950, 500);
+		frame.setSize(950, 600);
 		frame.setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,6 +59,7 @@ public class DemoApplication {
 		mealsPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
 //		mealsPanel.setBackground(Color.gray);
 		JPanel instructionPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
 		JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
 		//ADDING PANELS TO CONTAINER
@@ -91,7 +92,6 @@ public class DemoApplication {
 		// JTEXTPANE & JSCROLLPANE
 		JTextPane tarifTextPane = new JTextPane();
 		tarifTextPane.setEditable(false); // Only for displaying
-
 		tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
 		tarifTextPane.setBackground(Color.lightGray);
 		JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support

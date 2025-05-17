@@ -455,3 +455,18 @@
 [2025-05-17 20:10:58] Yemek seçildi: Osso Buco alla Milanese
 [2025-05-17 20:10:59] Tarif getirildi: Osso Buco alla Milanese
 [2025-05-17 20:10:59] Meal Details kaydedildi/güncellendi: Osso Buco alla Milanese
+[2025-05-17 20:12:41] Kategoriler API'den alındı
+[2025-05-17 20:12:43] Kategori seçildi: Miscellaneous
+[2025-05-17 20:12:43] Miscellaneous kategorisi için 12 yemek getirildi
+[2025-05-17 20:12:46] Yemek seçildi: Osso Buco alla Milanese
+[2025-05-17 20:12:47] Tarif getirildi: Osso Buco alla Milanese
+[2025-05-17 20:12:47] Meal Details kaydedildi/güncellendi: Osso Buco alla Milanese
+[2025-05-17 20:13:39] Kategoriler API'den alındı
+[2025-05-17 20:13:42] Kategori seçildi: Miscellaneous
+[2025-05-17 20:13:42] Miscellaneous kategorisi için 12 yemek getirildi
+[2025-05-17 20:13:45] Yemek seçildi: Osso Buco alla Milanese
+[2025-05-17 20:13:45] Tarif getirildi: Osso Buco alla Milanese
+[2025-05-17 20:13:45] Meal Details kaydedildi/güncellendi: Osso Buco alla Milanese
+[2025-05-17 20:14:21] Kategoriler API'den alındı
+[2025-05-17 20:14:23] Tarif geçmişi penceresi açıldı
+[2025-05-17 20:14:23] Tarif geçmişi başarıyla yüklendi
