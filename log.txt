@@ -710,3 +710,9 @@
 [2025-05-18 01:37:55] Tarif geçmişi başarıyla yüklendi
 [2025-05-18 01:37:55] Tarif geçmişi başarıyla yüklendi
 [2025-05-18 01:37:55] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:49:44] Kategoriler API'den alındı
+[2025-05-18 01:50:07] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:50:07] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:52:16] Kategoriler API'den alındı
+[2025-05-18 01:52:17] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:52:17] Tarif geçmişi başarıyla yüklendi

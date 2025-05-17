@@ -23,12 +23,14 @@ public class HistoryPanel extends JFrame {
     private DefaultTableModel tableModel;
     private JTextPane tarifTextPane;
     private int selectedRow;
+    ImageIcon imageIcon;
 
     public HistoryPanel() {
         setTitle("Tarif Geçmişi");
         setSize(1200, 650);
         setLocationRelativeTo(null);
-
+        imageIcon = new ImageIcon("icon.jpeg");
+        setIconImage(imageIcon.getImage());
         // Tablo modeli oluştur
         String[] columnNames = {"Yemek Adı", "Tarif", "Favorilerde", "Fav Eklenme Tarihi", "İşlemler"};
         tableModel = new DefaultTableModel(columnNames, 0) {

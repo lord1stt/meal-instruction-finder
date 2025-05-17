@@ -41,10 +41,12 @@ public class DemoApplication {
 		final String[] mealInstruction = new String[1];
 
 		// GUI SETTINGS
-
+		//Icon Settings
+		ImageIcon imageIcon = new ImageIcon("icon.jpeg");
 		//FRAME SETTINGS
 		JFrame frame = new JFrame();
 		frame.setSize(950, 600);
+		frame.setIconImage(imageIcon.getImage());
 		frame.setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
