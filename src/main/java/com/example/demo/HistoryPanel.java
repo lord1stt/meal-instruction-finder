@@ -2,6 +2,8 @@ package com.example.demo;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -22,7 +24,7 @@ public class HistoryPanel extends JFrame {
 
     public HistoryPanel() {
         setTitle("Tarif Geçmişi");
-        setSize(1200, 500);
+        setSize(1200, 600);
         setLocationRelativeTo(null);
 
         // Tablo modeli oluştur
@@ -64,10 +66,27 @@ public class HistoryPanel extends JFrame {
         historyTable.getColumnModel().getColumn(4).setCellRenderer(new ButtonRenderer());
         historyTable.getColumnModel().getColumn(4).setCellEditor(new ButtonEditor(new JCheckBox(), "favorite"));
 
+        // JTEXTPANE & JSCROLLPANE
+        JTextPane tarifTextPane = new JTextPane();
+        tarifTextPane.setEditable(false); // Only for displaying
+        tarifTextPane.setPreferredSize(new Dimension(750,350)); // Boyutu ayarladık
+        tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
+        tarifTextPane.setBackground(Color.lightGray);
+        JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
+
         // Sil sütunu için buton renderer ve editor
         historyTable.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
         historyTable.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox(), "delete"));
-
+        historyTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent event) {
+                // do some actions here, for example
+                // print first column value from selected row
+                String selectedMealName = historyTable.getValueAt(historyTable.getSelectedRow(), 0).toString();
+                String selectedInstruction = historyTable.getValueAt(historyTable.getSelectedRow(), 1).toString();
+                tarifTextPane.setText("Seçilen Yemek: " + selectedMealName
+                + "\nTarifi: " + selectedInstruction);
+            }
+        });
 
 //        historyTable.setPreferredSize(new Dimension(800, 200));
 
@@ -97,13 +116,7 @@ public class HistoryPanel extends JFrame {
 
         JPanel mealDetailsPanel = new JPanel();
 
-        // JTEXTPANE & JSCROLLPANE
-        JTextPane tarifTextPane = new JTextPane();
-        tarifTextPane.setEditable(false); // Only for displaying
-        tarifTextPane.setPreferredSize(new Dimension(750,350)); // Boyutu ayarladık
-        tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
-        tarifTextPane.setBackground(Color.lightGray);
-        JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
+
 
         mainPanel.add(scrollPane,BorderLayout.CENTER);
         mealDetailsPanel.add(tarifScrollPane,BorderLayout.CENTER);

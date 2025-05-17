@@ -145,3 +145,9 @@
 [2025-05-17 15:08:39] Kategoriler API'den alındı
 [2025-05-17 15:08:39] Tarif geçmişi penceresi açıldı
 [2025-05-17 15:08:39] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:35:21] Kategoriler API'den alındı
+[2025-05-17 18:35:22] Tarif geçmişi penceresi açıldı
+[2025-05-17 18:35:22] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:35:56] Kategoriler API'den alındı
+[2025-05-17 18:35:56] Tarif geçmişi penceresi açıldı
+[2025-05-17 18:35:56] Tarif geçmişi başarıyla yüklendi
