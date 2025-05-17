@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "a81ff941-bcde-4ad8-80ff-b069e9200356",
+		"name": "Yemek Tarifi API Koleksiyonu",
+		"description": "TheMealDB API'sini kullanan yemek tarifi uygulaması için test koleksiyonu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45044457"
+	},
+	"item": [
+		{
+			"name": "Kategorileri Getir",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/categories.php",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"categories.php"
+					]
+				},
+				"description": "Tüm yemek kategorilerini getiren API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "Kategoriye Göre Yemekleri Getir",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"filter.php"
+					],
+					"query": [
+						{
+							"key": "c",
+							"value": "Seafood",
+							"description": "Kategori adı (örn: Beef, Chicken, Dessert, Lamb, Miscellaneous, Pasta, Pork, Seafood, Side, Starter, Vegan, Vegetarian, Breakfast, Goat)"
+						}
+					]
+				},
+				"description": "Belirli bir kategorideki tüm yemekleri getiren API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "Yemek Detayını Getir (İsme Göre)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"search.php"
+					],
+					"query": [
+						{
+							"key": "s",
+							"value": "Arrabiata",
+							"description": "Yemek ismi"
+						}
+					]
+				},
+				"description": "Yemek ismini kullanarak yemekle ilgili detaylı bilgileri getiren API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "Yemek Detayını Getir (ID'ye Göre)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"lookup.php"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "52772",
+							"description": "Yemek ID'si"
+						}
+					]
+				},
+				"description": "Yemek ID'sini kullanarak yemekle ilgili detaylı bilgileri getiren API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "Rastgele Yemek Getir",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/random.php",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"random.php"
+					]
+				},
+				"description": "Rastgele bir yemek tarifini getiren API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "İlk Harfe Göre Yemekleri Listele",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/search.php?f=a",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"search.php"
+					],
+					"query": [
+						{
+							"key": "f",
+							"value": "a",
+							"description": "Yemek adının ilk harfi"
+						}
+					]
+				},
+				"description": "Belirtilen harf ile başlayan tüm yemekleri listeleyen API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "Tüm Kategorileri Listele",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/list.php?c=list",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"list.php"
+					],
+					"query": [
+						{
+							"key": "c",
+							"value": "list"
+						}
+					]
+				},
+				"description": "Tüm kategori isimlerini liste halinde getiren API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "Tüm Alanları Listele",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/list.php?a=list",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"list.php"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "list"
+						}
+					]
+				},
+				"description": "Tüm yemek alanlarını (bölgelerini) liste halinde getiren API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "Tüm Malzemeleri Listele",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/list.php?i=list",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"list.php"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "list"
+						}
+					]
+				},
+				"description": "Tüm malzemeleri liste halinde getiren API endpoint'i"
+			},
+			"response": []
+		},
+		{
+			"name": "DeepL API Çeviri Test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "DeepL-Auth-Key 16b4af4f-4b68-4cde-b469-40799ba88e35:fx",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": [\"This is a test recipe instruction. Mix all ingredients and cook for 10 minutes.\"],\n    \"source_lang\": \"EN\",\n    \"target_lang\": \"TR\"\n}"
+				},
+				"url": {
+					"raw": "https://api-free.deepl.com/v2/translate",
+					"protocol": "https",
+					"host": [
+						"api-free",
+						"deepl",
+						"com"
+					],
+					"path": [
+						"v2",
+						"translate"
+					]
+				},
+				"description": "DeepL API kullanarak İngilizce metni Türkçe'ye çeviren API endpoint testi"
+			},
+			"response": []
+		},
+		{
+			"name": "Alana Göre Yemekleri Filtrele",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"filter.php"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "Canadian",
+							"description": "Alan adı (örn: American, British, Canadian, Chinese, Dutch, Italian vb.)"
+						}
+					]
+				},
+				"description": "Belirli bir alana/bölgeye ait yemekleri listeleyen API endpoint'i"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.themealdb.com/api/json/v1/1"
+		}
+	]
+}

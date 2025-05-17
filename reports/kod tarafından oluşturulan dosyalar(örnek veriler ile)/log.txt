@@ -689,24 +689,3 @@
 [2025-05-18 01:24:48] E-posta gönderimi için adres girildi: ahmet_eyibil@hotmail.com
 [2025-05-18 01:24:55] PDF oluşturuldu: favori_tarifler.pdf
 [2025-05-18 01:25:06] E-posta gönderildi: ahmet_eyibil@hotmail.com
-[2025-05-18 01:37:28] Kategoriler API'den alındı
-[2025-05-18 01:37:30] Kategori seçildi: Pork
-[2025-05-18 01:37:30] Pork kategorisi için 19 yemek getirildi
-[2025-05-18 01:37:32] Yemek seçildi: Coddled pork with cider
-[2025-05-18 01:37:33] Tarif getirildi: Coddled pork with cider
-[2025-05-18 01:37:33] Meal Details kaydedildi/güncellendi: Coddled pork with cider
-[2025-05-18 01:37:35] Tarif çevirildi: Coddled pork with cider (en -> tr)
-[2025-05-18 01:37:36] Favorilere eklendi: Coddled pork with cider
-[2025-05-18 01:37:38] Tarif geçmişi penceresi açıldı
-[2025-05-18 01:37:38] Tarif geçmişi başarıyla yüklendi
-[2025-05-18 01:37:40] Favorilerden çıkarıldı: Coddled pork with cider
-[2025-05-18 01:37:40] Tarif geçmişi başarıyla yüklendi
-[2025-05-18 01:37:44] Tarif silindi: Coddled pork with cider
-[2025-05-18 01:37:44] Tarif geçmişi başarıyla yüklendi
-[2025-05-18 01:37:46] PDF oluşturuldu: favori_tarifler.pdf
-[2025-05-18 01:37:50] E-posta gönderimi için adres girildi: ahmet_eyibil@hotmail.com
-[2025-05-18 01:37:51] PDF oluşturuldu: favori_tarifler.pdf
-[2025-05-18 01:37:53] E-posta gönderildi: ahmet_eyibil@hotmail.com
-[2025-05-18 01:37:55] Tarif geçmişi başarıyla yüklendi
-[2025-05-18 01:37:55] Tarif geçmişi başarıyla yüklendi
-[2025-05-18 01:37:55] Tarif geçmişi başarıyla yüklendi
