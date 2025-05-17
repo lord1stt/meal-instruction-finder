@@ -343,3 +343,9 @@
 [2025-05-17 19:45:30] HATA: E-posta gönderimi hatası: 535-5.7.8 Username and Password not accepted. For more information, go to
 535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-442f33804d9sm148581365e9.12 - gsmtp
 
+[2025-05-17 19:49:24] Kategoriler API'den alındı
+[2025-05-17 19:49:25] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:49:26] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:49:37] E-posta gönderimi için adres girildi: yazikkafana5252@gmail.com
+[2025-05-17 19:49:38] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-17 19:49:40] E-posta gönderildi: yazikkafana5252@gmail.com

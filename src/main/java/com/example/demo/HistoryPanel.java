@@ -253,7 +253,7 @@ public class HistoryPanel extends JFrame {
 
         String from = "furkantoparlak060@gmail.com"; // Senin Gmail adresin
         final String username = "furkantoparlak060@gmail.com"; // Gmail kullanıcı adın
-        final String password = "zako uron nghz vttq"; // Gmail uygulama şifren
+        final String password = "zheo wowf avmg mavv"; // Gmail uygulama şifren
 
         // SMTP ayarları
         Properties props = new Properties();
