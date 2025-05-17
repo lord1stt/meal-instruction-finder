@@ -61,11 +61,6 @@ public class HistoryPanel extends JFrame {
                         return c;
                     }
                 });
-
-        // İşlemler sütunu için buton renderer ve editor
-        historyTable.getColumnModel().getColumn(4).setCellRenderer(new ButtonRenderer());
-        historyTable.getColumnModel().getColumn(4).setCellEditor(new ButtonEditor(new JCheckBox(), "favorite"));
-
         // JTEXTPANE & JSCROLLPANE
         JTextPane tarifTextPane = new JTextPane();
         tarifTextPane.setEditable(false); // Only for displaying
@@ -73,6 +68,11 @@ public class HistoryPanel extends JFrame {
         tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
         tarifTextPane.setBackground(Color.lightGray);
         JScrollPane tarifScrollPane = new JScrollPane(tarifTextPane); // Add scroll support
+
+        // İşlemler sütunu için buton renderer ve editor
+        historyTable.getColumnModel().getColumn(4).setCellRenderer(new ButtonRenderer());
+        historyTable.getColumnModel().getColumn(4).setCellEditor(new ButtonEditor(new JCheckBox(), "favorite"));
+
 
         // Sil sütunu için buton renderer ve editor
         historyTable.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
@@ -159,7 +159,9 @@ public class HistoryPanel extends JFrame {
             Logger.logError("Tarif geçmişi yüklenirken hata: " + e.getMessage());
         }
     }
+    private void loadMealHistory(int i){
 
+    }
     // Meal silme metodu
     private void deleteMeal(int rowIndex) {
         try {
@@ -374,18 +376,23 @@ public class HistoryPanel extends JFrame {
                         MealDetailResponse response = LoadFromJSON.load();
                         List<MealDetailResponse.MealDetail> meals = response.getMeals();
 
-                        if (currentRow >= 0 && currentRow < meals.size()) {
+                        if (currentRow != -1) {
+
                             MealDetailResponse.MealDetail selectedMeal = meals.get(currentRow);
 
                             // Favori durumunu tersine çevir
                             boolean newFavoriteStatus = !selectedMeal.isFavorite();
-                            selectedMeal.setFavorite(newFavoriteStatus);
-
+//                            selectedMeal.setFavorite(newFavoriteStatus);
+                            response.setMealIsFavorite(currentRow,newFavoriteStatus);
                             // Değişiklikleri kaydet
                             SavetoJSON.save(response, "meals.json");
-
-                            // Tabloyu güncelle
-                            loadMealHistory();
+                            // Tablo modelini doğrudan güncelle
+                            tableModel.setValueAt(newFavoriteStatus ? "Evet" : "Hayır", currentRow, 2);
+                            tableModel.setValueAt(newFavoriteStatus ? java.time.LocalDate.now().toString() : "-", currentRow, 3);
+                            tableModel.setValueAt(newFavoriteStatus ? "Favorilerden Çıkar" : "Favorilere Ekle", currentRow, 4);
+                            JOptionPane.showMessageDialog(button,
+                                    selectedMeal.getStrMeal() +
+                                            (newFavoriteStatus ? " favorilere eklendi." : " favorilerden çıkarıldı."));
 
                             // Log favori durumu değişikliği
                             if (newFavoriteStatus) {
@@ -393,10 +400,6 @@ public class HistoryPanel extends JFrame {
                             } else {
                                 Logger.logMealRemovedFromFavorites(selectedMeal.getStrMeal());
                             }
-
-                            JOptionPane.showMessageDialog(button,
-                                    selectedMeal.getStrMeal() +
-                                            (newFavoriteStatus ? " favorilere eklendi." : " favorilerden çıkarıldı."));
                         }
                     }
                 } catch (IOException ex) {
@@ -405,6 +408,7 @@ public class HistoryPanel extends JFrame {
                             "Hata", JOptionPane.ERROR_MESSAGE);
                     Logger.logError("İşlem sırasında hata: " + ex.getMessage());
                 }
+
             }
             isPushed = false;
             return label;

@@ -151,3 +151,195 @@
 [2025-05-17 18:35:56] Kategoriler API'den alındı
 [2025-05-17 18:35:56] Tarif geçmişi penceresi açıldı
 [2025-05-17 18:35:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:36:38] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:36:38] Favorilerden çıkarıldı: Hot and Sour Soup
+[2025-05-17 18:36:43] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:36:45] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:36:45] Favorilerden çıkarıldı: Hot and Sour Soup
+[2025-05-17 18:36:49] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:36:49] Favorilerden çıkarıldı: Crock Pot Chicken Baked Tacos
+[2025-05-17 18:36:55] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:36:56] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:36:56] Favorilerden çıkarıldı: Crock Pot Chicken Baked Tacos
+[2025-05-17 18:46:25] Kategoriler API'den alındı
+[2025-05-17 18:46:29] Tarif geçmişi penceresi açıldı
+[2025-05-17 18:46:29] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:47:19] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:47:19] Favorilerden çıkarıldı: Steak Diane
+[2025-05-17 18:54:12] Kategoriler API'den alındı
+[2025-05-17 18:54:13] Tarif geçmişi penceresi açıldı
+[2025-05-17 18:54:13] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:55:27] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:55:27] Favorilerden çıkarıldı: Turkey Meatloaf
+[2025-05-17 18:55:37] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:55:38] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:55:38] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:55:38] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:55:38] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:55:38] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:55:39] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:57:13] Kategoriler API'den alındı
+[2025-05-17 18:57:14] Tarif geçmişi penceresi açıldı
+[2025-05-17 18:57:14] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:57:24] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:57:24] Favorilere eklendi: Hot and Sour Soup
+[2025-05-17 18:57:27] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:57:27] Favorilere eklendi: Hot and Sour Soup
+[2025-05-17 18:57:30] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:57:30] Favorilerden çıkarıldı: Crispy Sausages and Greens
+[2025-05-17 18:59:07] Kategoriler API'den alındı
+[2025-05-17 18:59:08] Tarif geçmişi penceresi açıldı
+[2025-05-17 18:59:08] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:59:10] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:59:10] Favorilere eklendi: Fish pie
+[2025-05-17 18:59:13] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:59:14] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:59:14] Favorilerden çıkarıldı: Fish pie
+[2025-05-17 18:59:15] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:59:15] Favorilere eklendi: Fish pie
+[2025-05-17 18:59:18] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 18:59:18] Favorilere eklendi: Crock Pot Chicken Baked Tacos
+[2025-05-17 19:08:59] Kategoriler API'den alındı
+[2025-05-17 19:09:11] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:09:11] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:12] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:12] Favorilere eklendi: Kapsalon
+[2025-05-17 19:09:15] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:15] Favorilerden çıkarıldı: Kapsalon
+[2025-05-17 19:09:16] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:16] Favorilere eklendi: Kapsalon
+[2025-05-17 19:09:17] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:17] Favorilerden çıkarıldı: Kapsalon
+[2025-05-17 19:09:19] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:19] Favorilere eklendi: Beef and Mustard Pie
+[2025-05-17 19:09:20] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:20] Favorilerden çıkarıldı: Beef and Mustard Pie
+[2025-05-17 19:09:22] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:22] Favorilere eklendi: Kapsalon
+[2025-05-17 19:09:24] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:24] Favorilere eklendi: Crispy Sausages and Greens
+[2025-05-17 19:09:28] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:28] Favorilerden çıkarıldı: Hot and Sour Soup
+[2025-05-17 19:09:29] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:29] Favorilerden çıkarıldı: Crispy Sausages and Greens
+[2025-05-17 19:09:34] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:34] Favorilerden çıkarıldı: French Lentils With Garlic and Thyme
+[2025-05-17 19:09:36] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:36] Favorilerden çıkarıldı: Duck Confit
+[2025-05-17 19:09:38] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:38] Favorilere eklendi: Duck Confit
+[2025-05-17 19:09:39] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:39] Favorilerden çıkarıldı: Duck Confit
+[2025-05-17 19:09:41] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:09:41] Favorilerden çıkarıldı: Smoked Haddock Kedgeree
+[2025-05-17 19:09:58] Kategoriler API'den alındı
+[2025-05-17 19:09:59] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:09:59] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:10:02] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:10:02] Favorilerden çıkarıldı: Beef Bourguignon
+[2025-05-17 19:10:04] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:10:06] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:10:06] Favorilerden çıkarıldı: Apam balik
+[2025-05-17 19:10:08] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:10:09] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:10:09] Favorilerden çıkarıldı: Kapsalon
+[2025-05-17 19:10:11] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:13:23] Kategoriler API'den alındı
+[2025-05-17 19:13:23] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:13:23] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:13:40] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:13:40] Favorilere eklendi: Kapsalon
+[2025-05-17 19:13:55] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:15:15] Kategoriler API'den alındı
+[2025-05-17 19:15:16] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:15:16] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:15:17] Favorilere eklendi: Smoked Haddock Kedgeree
+[2025-05-17 19:15:17] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:15:20] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:15:59] Kategoriler API'den alındı
+[2025-05-17 19:16:00] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:16:00] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:16:02] Favorilere eklendi: Escovitch Fish
+[2025-05-17 19:16:02] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:16:02] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:17:12] Kategoriler API'den alındı
+[2025-05-17 19:17:13] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:17:13] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:17:15] Favorilere eklendi: Duck Confit
+[2025-05-17 19:17:15] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:17:17] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:17:20] Favorilere eklendi: Crispy Sausages and Greens
+[2025-05-17 19:17:20] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:17:21] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:17:24] Favorilere eklendi: Lasagna Sandwiches
+[2025-05-17 19:17:24] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:17:30] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:25:07] Kategoriler API'den alındı
+[2025-05-17 19:29:29] Kategoriler API'den alındı
+[2025-05-17 19:29:29] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:29:29] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:29:38] Favorilere eklendi: Beef Bourguignon
+[2025-05-17 19:29:38] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:33:07] Kategoriler API'den alındı
+[2025-05-17 19:33:13] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:33:14] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:33:17] Favorilere eklendi: Beef and Oyster pie
+[2025-05-17 19:33:17] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:33:19] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:33:23] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-17 19:33:35] E-posta gönderimi için adres girildi: suleeyibil@gmail.com
+[2025-05-17 19:33:36] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-17 19:33:41] HATA: E-posta gönderimi hatası: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-3a35ca889a7sm6776567f8f.72 - gsmtp
+
+[2025-05-17 19:34:09] Kategoriler API'den alındı
+[2025-05-17 19:34:11] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:34:11] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:34:21] E-posta gönderimi için adres girildi: suleeyibil@gmail.com
+[2025-05-17 19:34:22] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-17 19:34:31] HATA: E-posta gönderimi hatası: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-3a35ca8896dsm6664105f8f.73 - gsmtp
+
+[2025-05-17 19:34:38] E-posta gönderimi için adres girildi: yazikkafana5252@gmail.com
+[2025-05-17 19:34:39] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-17 19:34:40] HATA: E-posta gönderimi hatası: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-443003ab9e2sm60084675e9.7 - gsmtp
+
+[2025-05-17 19:36:27] Kategoriler API'den alındı
+[2025-05-17 19:36:27] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:36:27] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:36:30] Favorilere eklendi: French Omelette
+[2025-05-17 19:36:34] Favorilerden çıkarıldı: French Omelette
+[2025-05-17 19:36:35] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:36:36] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:36:36] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:36:36] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:36:38] Favorilerden çıkarıldı: Beef and Oyster pie
+[2025-05-17 19:36:41] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:36:58] Kategoriler API'den alındı
+[2025-05-17 19:36:59] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:36:59] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:37:01] Favorilerden çıkarıldı: Smoked Haddock Kedgeree
+[2025-05-17 19:37:07] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:41:31] Kategoriler API'den alındı
+[2025-05-17 19:41:32] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:41:32] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:41:38] Favorilere eklendi: Beef Asado
+[2025-05-17 19:41:47] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:42:45] Kategoriler API'den alındı
+[2025-05-17 19:42:46] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:42:46] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:42:58] Favorilerden çıkarıldı: Escovitch Fish
+[2025-05-17 19:43:35] E-posta gönderimi için adres girildi: yazikkafana5252@gmail.com
+[2025-05-17 19:43:35] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-17 19:43:44] HATA: E-posta gönderimi hatası: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-442f33691f2sm147605775e9.3 - gsmtp
+
+[2025-05-17 19:45:01] Kategoriler API'den alındı
+[2025-05-17 19:45:04] Tarif geçmişi penceresi açıldı
+[2025-05-17 19:45:04] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 19:45:15] E-posta gönderimi için adres girildi: yazikkafana5252@gmail.com
+[2025-05-17 19:45:16] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-17 19:45:30] HATA: E-posta gönderimi hatası: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-442f33804d9sm148581365e9.12 - gsmtp
+

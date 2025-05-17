@@ -19,7 +19,9 @@ public class MealDetailResponse {
     public void setMeals(List<MealDetail> meals) {
         this.meals = meals;
     }
-
+    public void setMealIsFavorite(int index,boolean status ){
+        meals.get(index).isFavorite = status;
+    }
     public static class MealDetail {
         private int mealId;
         private String mealNameStr;
