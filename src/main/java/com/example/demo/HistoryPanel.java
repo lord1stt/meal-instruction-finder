@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import jdk.jfr.Experimental;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
@@ -23,7 +21,9 @@ public class HistoryPanel extends JFrame {
 
     private JTable historyTable;
     private DefaultTableModel tableModel;
+    private JTextPane tarifTextPane;
     private int selectedRow;
+
     public HistoryPanel() {
         setTitle("Tarif Geçmişi");
         setSize(1200, 650);
@@ -45,7 +45,6 @@ public class HistoryPanel extends JFrame {
         historyTable.getColumnModel().getColumn(3).setPreferredWidth(80);
         historyTable.getColumnModel().getColumn(4).setPreferredWidth(70);
 
-
         // Tarif sütununu düzgün göstermek için cell renderer
         historyTable.getColumnModel().getColumn(1).
                 setCellRenderer(new DefaultTableCellRenderer() {
@@ -63,8 +62,9 @@ public class HistoryPanel extends JFrame {
                         return c;
                     }
                 });
+
         // JTEXTPANE & JSCROLLPANE
-        JTextPane tarifTextPane = new JTextPane();
+        tarifTextPane = new JTextPane();
         tarifTextPane.setEditable(false); // Only for displaying
         tarifTextPane.setPreferredSize(new Dimension(900,380)); // Boyutu ayarladık
         tarifTextPane.setFont(new Font("Verdana", Font.BOLD, 15));
@@ -75,9 +75,7 @@ public class HistoryPanel extends JFrame {
         historyTable.getColumnModel().getColumn(4).setCellRenderer(new ButtonRenderer());
         historyTable.getColumnModel().getColumn(4).setCellEditor(new ButtonEditor(new JCheckBox(), "favorite"));
 
-
-
-        // Mevcut ListSelectionListener'ı şu şekilde değiştirin:
+        // Satır seçimi için listener
         historyTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 // Sadece selection işlemi bittiğinde çalışsın
@@ -90,10 +88,7 @@ public class HistoryPanel extends JFrame {
 
                     // Geçerli bir satır seçili mi kontrol et
                     if (selectedRow >= 0 && selectedRow < historyTable.getRowCount()) {
-                        String selectedMealName = historyTable.getValueAt(selectedRow, 0).toString();
-                        String selectedInstruction = historyTable.getValueAt(selectedRow, 1).toString();
-                        tarifTextPane.setText("Seçilen Yemek: " + selectedMealName
-                                + "\nTarifi: " + selectedInstruction);
+                        displaySelectedRecipe();
                     } else {
                         // Geçersiz seçim durumunda metin alanını temizle
                         tarifTextPane.setText("Bir yemek seçin...");
@@ -105,7 +100,6 @@ public class HistoryPanel extends JFrame {
             }
         });
 
-
         JScrollPane scrollPane = new JScrollPane(historyTable);
         // ScrollPane için minimum/preferred boyut ayarla
         scrollPane.setPreferredSize(new Dimension(950, 250));
@@ -113,35 +107,69 @@ public class HistoryPanel extends JFrame {
         // Ana panel oluştur
         JPanel mainPanel = new JPanel(new BorderLayout());
 
+        // Butonlar için panel
+        JPanel buttonPanel = new JPanel();
 
-
-        JButton refreshButton = new JButton("Yenile");
+        // Butonlar
+        JButton refreshButton = new JButton("Listeyi Yenile");
         refreshButton.addActionListener(e -> loadMealHistory());
 
-        JButton getPdfButton = new JButton("Favorileri PDF'e Dönüştür.");
+        JButton favoriteButton = new JButton("Favorilere Ekle/Çıkar");
+        favoriteButton.addActionListener(e -> toggleFavorite());
+
+        JButton deleteButton = new JButton("Seçili Tarifi Sil");
+        deleteButton.addActionListener(e -> deleteMeal());
+
+        JButton getPdfButton = new JButton("Favorileri PDF'e Dönüştür");
         getPdfButton.addActionListener(e -> convertToPdf());
 
-        JButton scheduleEmailButton = new JButton("Favorileri E-posta gönder(Gmail)");
+        JButton scheduleEmailButton = new JButton("Favorileri E-posta gönder");
         scheduleEmailButton.addActionListener(e -> scheduleEmail());
 
-        JPanel buttonPanel = new JPanel();
         buttonPanel.add(refreshButton);
+        buttonPanel.add(favoriteButton);
+        buttonPanel.add(deleteButton);
         buttonPanel.add(getPdfButton);
         buttonPanel.add(scheduleEmailButton);
 
         JPanel mealDetailsPanel = new JPanel();
+        mealDetailsPanel.setLayout(new BorderLayout());
+        mealDetailsPanel.add(tarifScrollPane, BorderLayout.CENTER);
 
+        // Frame'e panelleri ekle
+        getContentPane().add(mainPanel, BorderLayout.NORTH);
+        getContentPane().add(mealDetailsPanel, BorderLayout.CENTER);
+        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
-
-        mainPanel.add(scrollPane,BorderLayout.CENTER);
-        mealDetailsPanel.add(tarifScrollPane,BorderLayout.CENTER);
-
-        // Frame'e ana paneli ekle
-        getContentPane().add(mainPanel,BorderLayout.NORTH);
-        getContentPane().add(mealDetailsPanel,BorderLayout.CENTER);
-        getContentPane().add(buttonPanel,BorderLayout.SOUTH);
+        mainPanel.add(scrollPane, BorderLayout.CENTER);
 
         loadMealHistory();
+    }
+
+    private void displaySelectedRecipe() {
+        int selectedRow = historyTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            try {
+                MealDetailResponse response = LoadFromJSON.load();
+                List<MealDetailResponse.MealDetail> meals = response.getMeals();
+                String mealName = tableModel.getValueAt(selectedRow, 0).toString();
+
+                for (MealDetailResponse.MealDetail meal : meals) {
+                    if (meal.getStrMeal().equals(mealName)) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("Seçilen Yemek: ").append(meal.getStrMeal()).append("\n\n");
+                        sb.append("Tarifi: ").append(meal.getStrInstructions());
+                        tarifTextPane.setText(sb.toString());
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this,
+                        "Tarif detayları yüklenirken hata: " + e.getMessage(),
+                        "Hata", JOptionPane.ERROR_MESSAGE);
+                Logger.logError("Tarif detayları yüklenirken hata: " + e.getMessage());
+            }
+        }
     }
 
     private void loadMealHistory() {
@@ -163,8 +191,7 @@ public class HistoryPanel extends JFrame {
                         meal.getStrInstructions(),
                         favoriteStatus,
                         addDate,
-                        meal.isFavorite() ? "Favorilerden Çıkar" : "Favorilere Ekle",
-                        "Sil"
+                        meal.isFavorite() ? "Favorilerden Çıkar" : "Favorilere Ekle"
                 });
             }
 
@@ -179,9 +206,8 @@ public class HistoryPanel extends JFrame {
                     historyTable.setRowSelectionInterval(lastRow, lastRow);
                 }
             } else {
-                // Hiç satır kalmadığında seçim yapmaya çalışma
-                // Bu durumda tarifTextPane'i temizle
-                // Bu satırı ListSelectionListener'a bırakabilirsiniz, o zaten kontrol ediyor
+                // Hiç satır kalmadığında tarifTextPane'i temizle
+                tarifTextPane.setText("Tarif geçmişi boş.");
             }
 
             Logger.log("Tarif geçmişi başarıyla yüklendi");
@@ -193,11 +219,88 @@ public class HistoryPanel extends JFrame {
         }
     }
 
-    private void loadMealHistory(int i){
-        // Bu metot kullanılmıyor, gerekirse implement edilebilir
+    private void toggleFavorite() {
+        int selectedRow = historyTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            try {
+                MealDetailResponse response = LoadFromJSON.load();
+                List<MealDetailResponse.MealDetail> meals = response.getMeals();
+                String mealName = tableModel.getValueAt(selectedRow, 0).toString();
+
+                for (MealDetailResponse.MealDetail meal : meals) {
+                    if (meal.getStrMeal().equals(mealName)) {
+                        meal.setFavorite(!meal.isFavorite());
+                        if (meal.isFavorite()) {
+                            meal.setAddFavDate(java.time.LocalDate.now().toString());
+                        } else {
+                            meal.setAddFavDate(null);
+                        }
+                        SavetoJSON.save(response, "meals.json");
+
+                        String message = meal.isFavorite()
+                                ? mealName + " favorilere eklendi."
+                                : mealName + " favorilerden çıkarıldı.";
+                        JOptionPane.showMessageDialog(this, message);
+                        Logger.log(message);
+
+                        loadMealHistory();
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this,
+                        "Favori durumu değiştirilirken hata: " + e.getMessage(),
+                        "Hata", JOptionPane.ERROR_MESSAGE);
+                Logger.logError("Favori durumu değiştirilirken hata: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Lütfen bir tarif seçin.");
+        }
     }
 
-    private void convertToPdf(){
+    private void deleteMeal() {
+        int selectedRow = historyTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            try {
+                String mealName = tableModel.getValueAt(selectedRow, 0).toString();
+
+                int confirm = JOptionPane.showConfirmDialog(this,
+                        mealName + " tarifini silmek istediğinize emin misiniz?",
+                        "Tarif Silme", JOptionPane.YES_NO_OPTION);
+
+                if (confirm == JOptionPane.YES_OPTION) {
+                    MealDetailResponse response = LoadFromJSON.load();
+                    List<MealDetailResponse.MealDetail> meals = response.getMeals();
+
+                    // Yemeği meals listesinden kaldır
+                    meals.removeIf(meal -> meal.getStrMeal().equals(mealName));
+                    response.setMeals(meals);
+
+                    // JSON dosyasına değişiklikleri kaydet
+                    SavetoJSON.save(response, "meals.json");
+
+                    JOptionPane.showMessageDialog(this, mealName + " başarıyla silindi.");
+                    Logger.log("Tarif silindi: " + mealName);
+
+                    // Silinme işleminden sonra verileri yeniden yükle
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            loadMealHistory();
+                        }
+                    });
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this,
+                        "Tarif silinirken hata: " + e.getMessage(),
+                        "Hata", JOptionPane.ERROR_MESSAGE);
+                Logger.logError("Tarif silinirken hata: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Lütfen silinecek bir tarif seçin.");
+        }
+    }
+
+    private void convertToPdf() {
         try {
             List<MealDetailResponse.MealDetail> favorites = GetFavorites.getFavorites();
 
@@ -231,13 +334,13 @@ public class HistoryPanel extends JFrame {
         }
     }
 
-    private void scheduleEmail(){
+    private void scheduleEmail() {
         String to;
         boolean gmailAuth = false;
 
         do {
             to = JOptionPane.showInputDialog(null,
-                    "Gmail adresinizi girin: ",
+                    "Email adresinizi girin: ",
                     "Bilgi",
                     JOptionPane.INFORMATION_MESSAGE);
 
@@ -246,7 +349,7 @@ public class HistoryPanel extends JFrame {
                 return;
             }
 
-            if(!to.contains("@gmail") || !to.contains(".com")){
+            if(!to.contains("@") || !to.contains(".com")){
                 JOptionPane.showMessageDialog(null,
                         "Lütfen geçerli bir email adresi girin: ",
                         "Hata",
@@ -256,7 +359,7 @@ public class HistoryPanel extends JFrame {
             else{
                 gmailAuth = true;
             }
-        }while(!gmailAuth);
+        } while(!gmailAuth);
 
         Logger.log("E-posta gönderimi için adres girildi: " + to);
 
@@ -371,32 +474,42 @@ public class HistoryPanel extends JFrame {
                 try {
                     if (buttonType.equals("favorite")) {
                         // Favori durumu değiştir
-                        // Mevcut yemek detaylarını al
                         MealDetailResponse response = LoadFromJSON.load();
                         List<MealDetailResponse.MealDetail> meals = response.getMeals();
 
-                        if (currentRow != -1 && currentRow < meals.size()) {
-                            MealDetailResponse.MealDetail selectedMeal = meals.get(currentRow);
+                        if (currentRow != -1 && currentRow < tableModel.getRowCount()) {
+                            String mealName = tableModel.getValueAt(currentRow, 0).toString();
 
-                            // Favori durumunu tersine çevir
-                            boolean newFavoriteStatus = !selectedMeal.isFavorite();
-//                            selectedMeal.setFavorite(newFavoriteStatus);
-                            response.setMealIsFavorite(currentRow,newFavoriteStatus);
-                            // Değişiklikleri kaydet
-                            SavetoJSON.save(response, "meals.json");
-                            // Tablo modelini doğrudan güncelle
-                            tableModel.setValueAt(newFavoriteStatus ? "Evet" : "Hayır", currentRow, 2);
-                            tableModel.setValueAt(newFavoriteStatus ? java.time.LocalDate.now().toString() : "-", currentRow, 3);
-                            tableModel.setValueAt(newFavoriteStatus ? "Favorilerden Çıkar" : "Favorilere Ekle", currentRow, 4);
-                            JOptionPane.showMessageDialog(button,
-                                    selectedMeal.getStrMeal() +
-                                            (newFavoriteStatus ? " favorilere eklendi." : " favorilerden çıkarıldı."));
+                            for (MealDetailResponse.MealDetail meal : meals) {
+                                if (meal.getStrMeal().equals(mealName)) {
+                                    // Favori durumunu tersine çevir
+                                    boolean newFavoriteStatus = !meal.isFavorite();
+                                    meal.setFavorite(newFavoriteStatus);
 
-                            // Log favori durumu değişikliği
-                            if (newFavoriteStatus) {
-                                Logger.logMealAddedToFavorites(selectedMeal.getStrMeal());
-                            } else {
-                                Logger.logMealRemovedFromFavorites(selectedMeal.getStrMeal());
+                                    if (newFavoriteStatus) {
+                                        meal.setAddFavDate(java.time.LocalDate.now().toString());
+                                    } else {
+                                        meal.setAddFavDate(null);
+                                    }
+
+                                    // Değişiklikleri kaydet
+                                    SavetoJSON.save(response, "meals.json");
+
+                                    JOptionPane.showMessageDialog(button,
+                                            meal.getStrMeal() +
+                                                    (newFavoriteStatus ? " favorilere eklendi." : " favorilerden çıkarıldı."));
+
+                                    // Log favori durumu değişikliği
+                                    if (newFavoriteStatus) {
+                                        Logger.logMealAddedToFavorites(meal.getStrMeal());
+                                    } else {
+                                        Logger.logMealRemovedFromFavorites(meal.getStrMeal());
+                                    }
+
+                                    // Tabloyu yenile
+                                    loadMealHistory();
+                                    break;
+                                }
                             }
                         }
                     }
@@ -406,7 +519,6 @@ public class HistoryPanel extends JFrame {
                             "Hata", JOptionPane.ERROR_MESSAGE);
                     Logger.logError("İşlem sırasında hata: " + ex.getMessage());
                 }
-
             }
             isPushed = false;
             return label;
@@ -417,6 +529,7 @@ public class HistoryPanel extends JFrame {
             isPushed = false;
             return super.stopCellEditing();
         }
+
         @Override
         public void cancelCellEditing() {
             super.cancelCellEditing();

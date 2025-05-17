@@ -642,3 +642,50 @@
 [2025-05-18 00:34:21] Kategoriler API'den alındı
 [2025-05-18 00:34:22] Tarif geçmişi penceresi açıldı
 [2025-05-18 00:34:22] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:02:46] Kategoriler API'den alındı
+[2025-05-18 01:02:46] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:02:46] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:02:53] Kategoriler API'den alındı
+[2025-05-18 01:03:01] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:03:01] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:04:04] Kategoriler API'den alındı
+[2025-05-18 01:04:04] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:04:04] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:04:36] Favorilere eklendi: Beef Caldereta
+[2025-05-18 01:04:37] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:04:39] Favorilerden çıkarıldı: Beef Caldereta
+[2025-05-18 01:04:40] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:09:45] Kategoriler API'den alındı
+[2025-05-18 01:09:45] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:09:45] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:09:53] HATA: Geçersiz e-posta adresi girişi: ahmet_eyibil@hotmail.com
+[2025-05-18 01:10:29] Kategoriler API'den alındı
+[2025-05-18 01:10:31] HATA: Favorilere eklemek için yemek seçilmedi
+[2025-05-18 01:10:32] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:10:32] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:10:59] E-posta gönderimi için adres girildi: ahmet_eyibil@hotmail.com
+[2025-05-18 01:11:01] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-18 01:11:04] E-posta gönderildi: ahmet_eyibil@hotmail.com
+[2025-05-18 01:15:57] Kategoriler API'den alındı
+[2025-05-18 01:15:57] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:15:57] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:16:12] Tarif silindi: Beef Caldereta
+[2025-05-18 01:16:12] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:18:57] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:18:57] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:20:19] Favorilere eklendi: Hot and Sour Soup
+[2025-05-18 01:20:19] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:20:22] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:20:58] Favorilerden çıkarıldı: Hot and Sour Soup
+[2025-05-18 01:20:58] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:21:35] Tarif silindi: Hot and Sour Soup
+[2025-05-18 01:21:35] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:22:10] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-18 01:23:20] HATA: Geçersiz e-posta adresi girişi: ahmet_eyibil@hotmail.com
+[2025-05-18 01:23:28] HATA: Geçersiz e-posta adresi girişi: ahmet_eyibil@hotmail.com
+[2025-05-18 01:24:10] Kategoriler API'den alındı
+[2025-05-18 01:24:11] Tarif geçmişi penceresi açıldı
+[2025-05-18 01:24:11] Tarif geçmişi başarıyla yüklendi
+[2025-05-18 01:24:48] E-posta gönderimi için adres girildi: ahmet_eyibil@hotmail.com
+[2025-05-18 01:24:55] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-18 01:25:06] E-posta gönderildi: ahmet_eyibil@hotmail.com
