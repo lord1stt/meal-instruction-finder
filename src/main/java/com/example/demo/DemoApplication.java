@@ -263,6 +263,9 @@ public class DemoApplication {
 								currentMeal[0]  + " Tarifi:\n" + mealInstruction[0],
 								LG_ENG, LG_TR);
 						tarifTextPane.setText(translatedText);
+						JOptionPane.showMessageDialog(null,
+								"Tarif başarıyla türkçe diline çevirildi.",
+								"Bilgi", JOptionPane.INFORMATION_MESSAGE);
 						Logger.logRecipeTranslated(currentMeal[0], LG_ENG, LG_TR);
                     } catch (Exception ex) {
 //                        throw new RuntimeException(ex);

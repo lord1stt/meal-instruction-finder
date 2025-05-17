@@ -470,3 +470,30 @@
 [2025-05-17 20:14:21] Kategoriler API'den alındı
 [2025-05-17 20:14:23] Tarif geçmişi penceresi açıldı
 [2025-05-17 20:14:23] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 21:07:14] Kategoriler API'den alındı
+[2025-05-17 21:07:19] Kategori seçildi: Lamb
+[2025-05-17 21:07:20] Lamb kategorisi için 15 yemek getirildi
+[2025-05-17 21:07:24] Yemek seçildi: Lamb Biryani
+[2025-05-17 21:07:25] Tarif getirildi: Lamb Biryani
+[2025-05-17 21:07:25] Meal Details kaydedildi/güncellendi: Lamb Biryani
+[2025-05-17 21:08:04] Tarif çevirildi: Lamb Biryani (en -> tr)
+[2025-05-17 21:08:17] Tarif geçmişi penceresi açıldı
+[2025-05-17 21:08:17] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 22:37:26] Kategoriler API'den alındı
+[2025-05-17 22:39:57] Kategori seçildi: Beef
+[2025-05-17 22:39:57] Beef kategorisi için 46 yemek getirildi
+[2025-05-17 22:40:24] Yemek seçildi: Beef and Mustard Pie
+[2025-05-17 22:40:25] Tarif getirildi: Beef and Mustard Pie
+[2025-05-17 22:40:25] Meal Details kaydedildi/güncellendi: Beef and Mustard Pie
+[2025-05-17 22:41:34] Kategoriler API'den alındı
+[2025-05-17 22:41:35] Kategori seçildi: Beef
+[2025-05-17 22:41:35] Beef kategorisi için 46 yemek getirildi
+[2025-05-17 22:41:53] Yemek seçildi: Beef and Mustard Pie
+[2025-05-17 22:43:15] Tarif getirildi: Beef and Mustard Pie
+[2025-05-17 22:43:15] Meal Details kaydedildi/güncellendi: Beef and Mustard Pie
+[2025-05-17 22:43:29] Tarif çevirildi: Beef and Mustard Pie (en -> tr)
+[2025-05-17 22:44:03] Favorilere eklendi: Beef and Mustard Pie
+[2025-05-17 22:44:29] Tarif geçmişi penceresi açıldı
+[2025-05-17 22:44:29] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:03:32] Kategoriler API'den alındı
+[2025-05-17 23:06:27] Kategoriler API'den alındı
