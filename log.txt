@@ -497,3 +497,27 @@
 [2025-05-17 22:44:29] Tarif geçmişi başarıyla yüklendi
 [2025-05-17 23:03:32] Kategoriler API'den alındı
 [2025-05-17 23:06:27] Kategoriler API'den alındı
+[2025-05-17 23:11:11] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:11:11] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:13:07] PDF oluşturuldu: favori_tarifler.pdf
+[2025-05-17 23:27:49] Kategoriler API'den alındı
+[2025-05-17 23:27:50] Kategori seçildi: Beef
+[2025-05-17 23:27:50] Beef kategorisi için 46 yemek getirildi
+[2025-05-17 23:27:54] Yemek seçildi: Cevapi Sausages
+[2025-05-17 23:27:55] Tarif getirildi: Cevapi Sausages
+[2025-05-17 23:27:55] Meal Details kaydedildi/güncellendi: Cevapi Sausages
+[2025-05-17 23:28:08] Kategoriler API'den alındı
+[2025-05-17 23:32:35] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:32:35] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:34:00] Favorilere eklendi: Escovitch Fish
+[2025-05-17 23:34:03] Favorilerden çıkarıldı: Escovitch Fish
+[2025-05-17 23:34:42] Favorilere eklendi: Escovitch Fish
+[2025-05-17 23:35:13] Favorilerden çıkarıldı: Escovitch Fish
+[2025-05-17 23:36:38] Kategoriler API'den alındı
+[2025-05-17 23:36:39] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:36:39] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:36:51] Kategoriler API'den alındı
+[2025-05-17 23:36:53] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:36:53] Tarif geçmişi başarıyla yüklendi
+[2025-05-17 23:38:43] Tarif geçmişi penceresi açıldı
+[2025-05-17 23:38:43] Tarif geçmişi başarıyla yüklendi
