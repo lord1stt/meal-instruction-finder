@@ -1,4 +1,5 @@
-Ahmet EYİBİL | 24120205057 | GUI Tasarımı & API Entegrasyonu
-Furkan Toparlak | 241202050.. | GUI Tasarımı & Email İşlemleri
-Semih Kadıoğlu | 24120205084 | Email İşlemleri & PDF İşlemleri
-Ebubekir Kartal | 241202050.. | JSON İşlemleri & Loglama & GUI Tasarımı 
+| İSİM | NUMARA | GÖREV | 
+| Ahmet Eyibil | 24120205057 | GUI Tasarımı & API Entegrasyonu |
+| Furkan Toparlak | 24120205077 | GUI Tasarımı & Email İşlemleri |
+| Semih Kadıoğlu | 24120205084 | Email İşlemleri & PDF İşlemleri |
+| Ebubekir Kartal | 24120205055 | JSON İşlemleri & Loglama & GUI Tasarımı |
