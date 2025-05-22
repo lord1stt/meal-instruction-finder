@@ -68,12 +68,13 @@ public class MealDetailResponse {
 
         public void setFavorite(boolean favorite) {
             isFavorite = favorite;
-            if (favorite) {
+            if (favorite && this.addFavDate == null) {  // Sadece tarih BOŞSA yeni tarih ata
                 this.addFavDate = LocalDate.now().toString();
-            } else {
+            } else if (!favorite) {
                 this.addFavDate = null;
             }
         }
+
 
         public String getAddFavDate() {
             return addFavDate;
